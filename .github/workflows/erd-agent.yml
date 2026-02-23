@@ -1,0 +1,74 @@
+name: Auto Generate ERD
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.java"
+      - "**/entity/**"
+      - "**/domain/**"
+      - "**/jpa/**"
+
+jobs:
+  generate-erd:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ project repo checkout
+      - name: Checkout project repo
+        uses: actions/checkout@v4
+
+      # 2️⃣ Python 설정
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 3️⃣ erd_agent repo checkout
+      - name: Checkout erd-agent repo
+        uses: actions/checkout@v4
+        with:
+          repository: AI-is-very-helpful/erd_agent
+          path: erd-agent
+
+      # 4️⃣ erd_agent 설치
+      - name: Install erd-agent
+        run: |
+          cd erd-agent
+          pip install -e .
+
+      # 5️⃣ ERD 생성 (AI-First)
+      - name: Generate ERD
+        env:
+          AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
+          AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
+          AZURE_OPENAI_DEPLOYMENT: ${{ secrets.AZURE_OPENAI_DEPLOYMENT }}
+        run: |
+          erd-agent . \
+            --ai-first \
+            --out ./erd_out
+
+      # 6️⃣ docs repo checkout
+      - name: Checkout docs repo
+        uses: actions/checkout@v4
+        with:
+          repository: AI-is-very-helpful/docs
+          token: ${{ secrets.DOCS_REPO_TOKEN }}
+          path: docs
+
+      # 7️⃣ 결과 복사
+      - name: Copy ERD output
+        run: |
+          rm -rf docs/erd
+          mkdir -p docs/erd
+          cp -r erd_out/* docs/erd/
+
+      # 8️⃣ docs repo commit & push
+      - name: Commit and push docs
+        run: |
+          cd docs
+          git config user.name "wlgh325"
+          git config user.email "wlgh325@gmail.com"
+          git add erd
+          git commit -m "docs: auto-update ERD from main" || echo "No changes"
+          git push
