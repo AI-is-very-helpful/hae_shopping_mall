@@ -1,0 +1,78 @@
+# Gradle / Java
+.gradle/
+build/
+out/
+
+# Gradle wrapper
+gradle-wrapper.jar
+
+# Compiled class files
+*.class
+
+# Package files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Test results / reports
+test-results/
+reports/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+.vscode/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# NetBeans
+nbproject/private/
+nbbuild/
+nbdist/
+.nb-gradle/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Local environment / secrets
+.env
+local.properties
+
+# Docker
+docker-compose.override.yml
+
+# Maven
+target/
+
+# Misc
+hs_err_pid*
+*.log.*
+
+# Spring Boot Devtools
+spring-devtools.properties
+
+# Outbox / generated event storage (if stored locally)
+outbox/
