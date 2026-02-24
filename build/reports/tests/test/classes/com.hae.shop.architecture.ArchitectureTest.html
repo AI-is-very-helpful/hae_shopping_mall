@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - ArchitectureTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>ArchitectureTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.hae.shop.architecture.html">com.hae.shop.architecture</a> &gt; ArchitectureTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">7</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">2</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.194s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">71%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="application_shouldOnlyDependOnDomain()"></a>
+<h3 class="failures">애플리케이션 레이어는 인프라 레이어에 직접 의존하지 않아야 한다</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in a package 'com.hae.shop.application..' should only depend on classes that reside in any package ['com.hae.shop.domain..', 'com.hae.shop.common..', 'java..', 'org.springframework.stereotype..', 'org.springframework.transaction..', 'lombok..']' was violated (544 times):
+Class &lt;com.hae.shop.application.CouponServiceTest&gt; has annotation member of type &lt;org.mockito.junit.jupiter.MockitoExtension&gt; in (CouponServiceTest.java:0)
+Class &lt;com.hae.shop.application.CouponServiceTest&gt; is annotated with &lt;org.junit.jupiter.api.extension.ExtendWith&gt; in (CouponServiceTest.java:0)
+Class &lt;com.hae.shop.application.MemberServiceTest&gt; has annotation member of type &lt;org.mockito.junit.jupiter.MockitoExtension&gt; in (MemberServiceTest.java:0)
+Class &lt;com.hae.shop.application.MemberServiceTest&gt; is annotated with &lt;org.junit.jupiter.api.extension.ExtendWith&gt; in (MemberServiceTest.java:0)
+Class &lt;com.hae.shop.application.OrderServiceTest&gt; has annotation member of type &lt;org.mockito.junit.jupiter.MockitoExtension&gt; in (OrderServiceTest.java:0)
+Class &lt;com.hae.shop.application.OrderServiceTest&gt; is annotated with &lt;org.junit.jupiter.api.extension.ExtendWith&gt; in (OrderServiceTest.java:0)
+Class &lt;com.hae.shop.application.PaymentServiceTest&gt; has annotation member of type &lt;org.mockito.junit.jupiter.MockitoExtension&gt; in (PaymentServiceTest.java:0)
+Class &lt;com.hae.shop.application.PaymentServiceTest&gt; is annotated with &lt;org.junit.jupiter.api.extension.ExtendWith&gt; in (PaymentServiceTest.java:0)
+Class &lt;com.hae.shop.application.ProductConcurrencyTest&gt; has annotation member of type &lt;org.mockito.junit.jupiter.MockitoExtension&gt; in (ProductConcurrencyTest.java:0)
+Class &lt;com.hae.shop.application.ProductConcurrencyTest&gt; is annotated with &lt;org.junit.jupiter.api.extension.ExtendWith&gt; in (ProductConcurrencyTest.java:0)
+Class &lt;com.hae.shop.application.ProductServiceTest&gt; has annotation member of type &lt;org.mockito.junit.jupiter.MockitoExtension&gt; in (ProductServiceTest.java:0)
+Class &lt;com.hae.shop.application.ProductServiceTest&gt; is annotated with &lt;org.junit.jupiter.api.extension.ExtendWith&gt; in (ProductServiceTest.java:0)
+Constructor &lt;com.hae.shop.application.MemberServiceImpl.&lt;init&gt;(com.hae.shop.domain.member.port.out.MemberRepositoryPort, org.springframework.security.crypto.password.PasswordEncoder)&gt; has parameter of type &lt;org.springframework.security.crypto.password.PasswordEncoder&gt; in (MemberServiceImpl.java:0)
+Constructor &lt;com.hae.shop.application.ProductServiceImpl.&lt;init&gt;(com.hae.shop.domain.product.port.out.ProductRepositoryPort, com.hae.shop.config.DistributedLock)&gt; has parameter of type &lt;com.hae.shop.config.DistributedLock&gt; in (ProductServiceImpl.java:0)
+Field &lt;com.hae.shop.application.CouponServiceTest.couponRepository&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (CouponServiceTest.java:0)
+Field &lt;com.hae.shop.application.CouponServiceTest.couponRepository&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (CouponServiceTest.java:0)
+Field &lt;com.hae.shop.application.CouponServiceTest.couponRepository&gt; is annotated with &lt;org.mockito.Mock&gt; in (CouponServiceTest.java:0)
+Field &lt;com.hae.shop.application.CouponServiceTest.couponService&gt; has type &lt;com.hae.shop.application.CouponServiceImpl&gt; in (CouponServiceTest.java:0)
+Field &lt;com.hae.shop.application.CouponServiceTest.couponService&gt; is annotated with &lt;org.mockito.InjectMocks&gt; in (CouponServiceTest.java:0)
+Field &lt;com.hae.shop.application.MemberServiceImpl.passwordEncoder&gt; has type &lt;org.springframework.security.crypto.password.PasswordEncoder&gt; in (MemberServiceImpl.java:0)
+Field &lt;com.hae.shop.application.MemberServiceTest.memberRepository&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (MemberServiceTest.java:0)
+Field &lt;com.hae.shop.application.MemberServiceTest.memberRepository&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (MemberServiceTest.java:0)
+Field &lt;com.hae.shop.application.MemberServiceTest.memberRepository&gt; is annotated with &lt;org.mockito.Mock&gt; in (MemberServiceTest.java:0)
+Field &lt;com.hae.shop.application.MemberServiceTest.memberService&gt; has type &lt;com.hae.shop.application.MemberServiceImpl&gt; in (MemberServiceTest.java:0)
+Field &lt;com.hae.shop.application.MemberServiceTest.memberService&gt; is annotated with &lt;org.mockito.InjectMocks&gt; in (MemberServiceTest.java:0)
+Field &lt;com.hae.shop.application.MemberServiceTest.passwordEncoder&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (MemberServiceTest.java:0)
+Field &lt;com.hae.shop.application.MemberServiceTest.passwordEncoder&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (MemberServiceTest.java:0)
+Field &lt;com.hae.shop.application.MemberServiceTest.passwordEncoder&gt; has type &lt;org.springframework.security.crypto.password.PasswordEncoder&gt; in (MemberServiceTest.java:0)
+Field &lt;com.hae.shop.application.MemberServiceTest.passwordEncoder&gt; is annotated with &lt;org.mockito.Mock&gt; in (MemberServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.couponService&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.couponService&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.couponService&gt; is annotated with &lt;org.mockito.Mock&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.orderRepository&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.orderRepository&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.orderRepository&gt; is annotated with &lt;org.mockito.Mock&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.orderService&gt; has type &lt;com.hae.shop.application.OrderServiceImpl&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.orderService&gt; is annotated with &lt;org.mockito.InjectMocks&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.outboxPort&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.outboxPort&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.outboxPort&gt; is annotated with &lt;org.mockito.Mock&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.paymentGatewayPort&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.paymentGatewayPort&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.paymentGatewayPort&gt; is annotated with &lt;org.mockito.Mock&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.productService&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.productService&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.OrderServiceTest.productService&gt; is annotated with &lt;org.mockito.Mock&gt; in (OrderServiceTest.java:0)
+Field &lt;com.hae.shop.application.PaymentServiceTest.paymentGatewayPort&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (PaymentServiceTest.java:0)
+Field &lt;com.hae.shop.application.PaymentServiceTest.paymentGatewayPort&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (PaymentServiceTest.java:0)
+Field &lt;com.hae.shop.application.PaymentServiceTest.paymentGatewayPort&gt; is annotated with &lt;org.mockito.Mock&gt; in (PaymentServiceTest.java:0)
+Field &lt;com.hae.shop.application.PaymentServiceTest.paymentService&gt; has type &lt;com.hae.shop.application.PaymentServiceImpl&gt; in (PaymentServiceTest.java:0)
+Field &lt;com.hae.shop.application.PaymentServiceTest.paymentService&gt; is annotated with &lt;org.mockito.InjectMocks&gt; in (PaymentServiceTest.java:0)
+Field &lt;com.hae.shop.application.ProductConcurrencyTest.distributedLock&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (ProductConcurrencyTest.java:0)
+Field &lt;com.hae.shop.application.ProductConcurrencyTest.distributedLock&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (ProductConcurrencyTest.java:0)
+Field &lt;com.hae.shop.application.ProductConcurrencyTest.distributedLock&gt; has type &lt;com.hae.shop.config.DistributedLock&gt; in (ProductConcurrencyTest.java:0)
+Field &lt;com.hae.shop.application.ProductConcurrencyTest.distributedLock&gt; is annotated with &lt;org.mockito.Mock&gt; in (ProductConcurrencyTest.java:0)
+Field &lt;com.hae.shop.application.ProductConcurrencyTest.productRepository&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (ProductConcurrencyTest.java:0)
+Field &lt;com.hae.shop.application.ProductConcurrencyTest.productRepository&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (ProductConcurrencyTest.java:0)
+Field &lt;com.hae.shop.application.ProductConcurrencyTest.productRepository&gt; is annotated with &lt;org.mockito.Mock&gt; in (ProductConcurrencyTest.java:0)
+Field &lt;com.hae.shop.application.ProductConcurrencyTest.productService&gt; has type &lt;com.hae.shop.application.ProductServiceImpl&gt; in (ProductConcurrencyTest.java:0)
+Field &lt;com.hae.shop.application.ProductConcurrencyTest.productService&gt; is annotated with &lt;org.mockito.InjectMocks&gt; in (ProductConcurrencyTest.java:0)
+Field &lt;com.hae.shop.application.ProductServiceImpl.distributedLock&gt; has type &lt;com.hae.shop.config.DistributedLock&gt; in (ProductServiceImpl.java:0)
+Field &lt;com.hae.shop.application.ProductServiceTest.distributedLock&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (ProductServiceTest.java:0)
+Field &lt;com.hae.shop.application.ProductServiceTest.distributedLock&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (ProductServiceTest.java:0)
+Field &lt;com.hae.shop.application.ProductServiceTest.distributedLock&gt; has type &lt;com.hae.shop.config.DistributedLock&gt; in (ProductServiceTest.java:0)
+Field &lt;com.hae.shop.application.ProductServiceTest.distributedLock&gt; is annotated with &lt;org.mockito.Mock&gt; in (ProductServiceTest.java:0)
+Field &lt;com.hae.shop.application.ProductServiceTest.productRepository&gt; has annotation member of type &lt;org.mockito.Answers&gt; in (ProductServiceTest.java:0)
+Field &lt;com.hae.shop.application.ProductServiceTest.productRepository&gt; has annotation member of type &lt;org.mockito.Mock$Strictness&gt; in (ProductServiceTest.java:0)
+Field &lt;com.hae.shop.application.ProductServiceTest.productRepository&gt; is annotated with &lt;org.mockito.Mock&gt; in (ProductServiceTest.java:0)
+Field &lt;com.hae.shop.application.ProductServiceTest.productService&gt; has type &lt;com.hae.shop.application.ProductServiceImpl&gt; in (ProductServiceTest.java:0)
+Field &lt;com.hae.shop.application.ProductServiceTest.productService&gt; is annotated with &lt;org.mockito.InjectMocks&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceImpl.getActiveCoupons()&gt; is annotated with &lt;org.springframework.cache.annotation.Cacheable&gt; in (CouponServiceImpl.java:0)
+Method &lt;com.hae.shop.application.CouponServiceImpl.getCoupon(java.lang.Long)&gt; is annotated with &lt;org.springframework.cache.annotation.Cacheable&gt; in (CouponServiceImpl.java:0)
+Method &lt;com.hae.shop.application.CouponServiceImpl.useCoupon(java.lang.Long, java.lang.Long)&gt; is annotated with &lt;org.springframework.cache.annotation.CacheEvict&gt; in (CouponServiceImpl.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_fixedType_shouldCalculateCorrectly()&gt; calls method &lt;com.hae.shop.application.CouponServiceImpl.applyDiscount(java.lang.Long, java.math.BigDecimal)&gt; in (CouponServiceTest.java:133)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_fixedType_shouldCalculateCorrectly()&gt; calls method &lt;org.assertj.core.api.AbstractBigDecimalAssert.isEqualByComparingTo(java.lang.Comparable)&gt; in (CouponServiceTest.java:135)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_fixedType_shouldCalculateCorrectly()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.math.BigDecimal)&gt; in (CouponServiceTest.java:135)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_fixedType_shouldCalculateCorrectly()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:131)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_fixedType_shouldCalculateCorrectly()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:131)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_fixedType_shouldCalculateCorrectly()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_fixedType_shouldCalculateCorrectly()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_percentageType_shouldCalculateCorrectly()&gt; calls method &lt;com.hae.shop.application.CouponServiceImpl.applyDiscount(java.lang.Long, java.math.BigDecimal)&gt; in (CouponServiceTest.java:110)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_percentageType_shouldCalculateCorrectly()&gt; calls method &lt;org.assertj.core.api.AbstractBigDecimalAssert.isEqualByComparingTo(java.lang.Comparable)&gt; in (CouponServiceTest.java:112)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_percentageType_shouldCalculateCorrectly()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.math.BigDecimal)&gt; in (CouponServiceTest.java:112)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_percentageType_shouldCalculateCorrectly()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:108)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_percentageType_shouldCalculateCorrectly()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:108)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_percentageType_shouldCalculateCorrectly()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_percentageType_shouldCalculateCorrectly()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_shouldCapAtMaxDiscountAmount()&gt; calls method &lt;com.hae.shop.application.CouponServiceImpl.applyDiscount(java.lang.Long, java.math.BigDecimal)&gt; in (CouponServiceTest.java:120)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_shouldCapAtMaxDiscountAmount()&gt; calls method &lt;org.assertj.core.api.AbstractBigDecimalAssert.isEqualByComparingTo(java.lang.Comparable)&gt; in (CouponServiceTest.java:122)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_shouldCapAtMaxDiscountAmount()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.math.BigDecimal)&gt; in (CouponServiceTest.java:122)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_shouldCapAtMaxDiscountAmount()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:118)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_shouldCapAtMaxDiscountAmount()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:118)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_shouldCapAtMaxDiscountAmount()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_shouldCapAtMaxDiscountAmount()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenBelowMinPurchase_shouldReturnZero()&gt; calls method &lt;com.hae.shop.application.CouponServiceImpl.applyDiscount(java.lang.Long, java.math.BigDecimal)&gt; in (CouponServiceTest.java:144)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenBelowMinPurchase_shouldReturnZero()&gt; calls method &lt;org.assertj.core.api.AbstractBigDecimalAssert.isEqualByComparingTo(java.lang.Comparable)&gt; in (CouponServiceTest.java:146)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenBelowMinPurchase_shouldReturnZero()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.math.BigDecimal)&gt; in (CouponServiceTest.java:146)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenBelowMinPurchase_shouldReturnZero()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:142)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenBelowMinPurchase_shouldReturnZero()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:142)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenBelowMinPurchase_shouldReturnZero()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenBelowMinPurchase_shouldReturnZero()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponExpired_shouldThrowException()&gt; calls method &lt;com.hae.shop.application.CouponServiceImpl.applyDiscount(java.lang.Long, java.math.BigDecimal)&gt; in (CouponServiceTest.java:155)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponExpired_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (CouponServiceTest.java:158)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponExpired_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (CouponServiceTest.java:156)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponExpired_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (CouponServiceTest.java:157)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponExpired_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (CouponServiceTest.java:157)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponExpired_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (CouponServiceTest.java:155)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponExpired_shouldThrowException()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:153)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponExpired_shouldThrowException()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:153)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponExpired_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponExpired_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponInactive_shouldThrowException()&gt; calls method &lt;com.hae.shop.application.CouponServiceImpl.applyDiscount(java.lang.Long, java.math.BigDecimal)&gt; in (CouponServiceTest.java:167)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponInactive_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (CouponServiceTest.java:170)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponInactive_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (CouponServiceTest.java:168)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponInactive_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (CouponServiceTest.java:169)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponInactive_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (CouponServiceTest.java:169)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponInactive_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (CouponServiceTest.java:167)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponInactive_shouldThrowException()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:165)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponInactive_shouldThrowException()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:165)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponInactive_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.applyDiscount_whenCouponInactive_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.createCoupon_shouldReturnCoupon()&gt; calls method &lt;com.hae.shop.application.CouponServiceImpl.createCoupon(com.hae.shop.domain.coupon.model.Coupon)&gt; in (CouponServiceTest.java:64)
+Method &lt;com.hae.shop.application.CouponServiceTest.createCoupon_shouldReturnCoupon()&gt; calls method &lt;org.assertj.core.api.AbstractStringAssert.isEqualTo(java.lang.String)&gt; in (CouponServiceTest.java:67)
+Method &lt;com.hae.shop.application.CouponServiceTest.createCoupon_shouldReturnCoupon()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Object)&gt; in (CouponServiceTest.java:66)
+Method &lt;com.hae.shop.application.CouponServiceTest.createCoupon_shouldReturnCoupon()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.String)&gt; in (CouponServiceTest.java:67)
+Method &lt;com.hae.shop.application.CouponServiceTest.createCoupon_shouldReturnCoupon()&gt; calls method &lt;org.assertj.core.api.ObjectAssert.isNotNull()&gt; in (CouponServiceTest.java:66)
+Method &lt;com.hae.shop.application.CouponServiceTest.createCoupon_shouldReturnCoupon()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (CouponServiceTest.java:62)
+Method &lt;com.hae.shop.application.CouponServiceTest.createCoupon_shouldReturnCoupon()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (CouponServiceTest.java:68)
+Method &lt;com.hae.shop.application.CouponServiceTest.createCoupon_shouldReturnCoupon()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:62)
+Method &lt;com.hae.shop.application.CouponServiceTest.createCoupon_shouldReturnCoupon()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:62)
+Method &lt;com.hae.shop.application.CouponServiceTest.createCoupon_shouldReturnCoupon()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.createCoupon_shouldReturnCoupon()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.getActiveCoupons_shouldReturnActiveCoupons()&gt; calls method &lt;com.hae.shop.application.CouponServiceImpl.getActiveCoupons()&gt; in (CouponServiceTest.java:99)
+Method &lt;com.hae.shop.application.CouponServiceTest.getActiveCoupons_shouldReturnActiveCoupons()&gt; calls method &lt;org.assertj.core.api.AbstractStringAssert.isEqualTo(java.lang.String)&gt; in (CouponServiceTest.java:102)
+Method &lt;com.hae.shop.application.CouponServiceTest.getActiveCoupons_shouldReturnActiveCoupons()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.String)&gt; in (CouponServiceTest.java:102)
+Method &lt;com.hae.shop.application.CouponServiceTest.getActiveCoupons_shouldReturnActiveCoupons()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.util.List)&gt; in (CouponServiceTest.java:101)
+Method &lt;com.hae.shop.application.CouponServiceTest.getActiveCoupons_shouldReturnActiveCoupons()&gt; calls method &lt;org.assertj.core.api.ListAssert.hasSize(int)&gt; in (CouponServiceTest.java:101)
+Method &lt;com.hae.shop.application.CouponServiceTest.getActiveCoupons_shouldReturnActiveCoupons()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:97)
+Method &lt;com.hae.shop.application.CouponServiceTest.getActiveCoupons_shouldReturnActiveCoupons()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:97)
+Method &lt;com.hae.shop.application.CouponServiceTest.getActiveCoupons_shouldReturnActiveCoupons()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.getActiveCoupons_shouldReturnActiveCoupons()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenExists_shouldReturnCoupon()&gt; calls method &lt;com.hae.shop.application.CouponServiceImpl.getCoupon(java.lang.Long)&gt; in (CouponServiceTest.java:76)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenExists_shouldReturnCoupon()&gt; calls method &lt;org.assertj.core.api.AbstractLongAssert.isEqualTo(long)&gt; in (CouponServiceTest.java:79)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenExists_shouldReturnCoupon()&gt; calls method &lt;org.assertj.core.api.AbstractStringAssert.isEqualTo(java.lang.String)&gt; in (CouponServiceTest.java:80)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenExists_shouldReturnCoupon()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Long)&gt; in (CouponServiceTest.java:79)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenExists_shouldReturnCoupon()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Object)&gt; in (CouponServiceTest.java:78)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenExists_shouldReturnCoupon()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.String)&gt; in (CouponServiceTest.java:80)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenExists_shouldReturnCoupon()&gt; calls method &lt;org.assertj.core.api.ObjectAssert.isNotNull()&gt; in (CouponServiceTest.java:78)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenExists_shouldReturnCoupon()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:74)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenExists_shouldReturnCoupon()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:74)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenExists_shouldReturnCoupon()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenExists_shouldReturnCoupon()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenNotExists_shouldThrowException()&gt; calls method &lt;com.hae.shop.application.CouponServiceImpl.getCoupon(java.lang.Long)&gt; in (CouponServiceTest.java:88)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (CouponServiceTest.java:91)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (CouponServiceTest.java:89)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (CouponServiceTest.java:90)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (CouponServiceTest.java:90)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (CouponServiceTest.java:88)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenNotExists_shouldThrowException()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:86)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenNotExists_shouldThrowException()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:86)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenNotExists_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.getCoupon_whenNotExists_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.setUp()&gt; is annotated with &lt;org.junit.jupiter.api.BeforeEach&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_shouldDecrementRemainingQuantity()&gt; calls method &lt;com.hae.shop.application.CouponServiceImpl.useCoupon(java.lang.Long, java.lang.Long)&gt; in (CouponServiceTest.java:179)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_shouldDecrementRemainingQuantity()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (CouponServiceTest.java:177)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_shouldDecrementRemainingQuantity()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (CouponServiceTest.java:181)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_shouldDecrementRemainingQuantity()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (CouponServiceTest.java:181)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_shouldDecrementRemainingQuantity()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:176)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_shouldDecrementRemainingQuantity()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:177)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_shouldDecrementRemainingQuantity()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:176)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_shouldDecrementRemainingQuantity()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:177)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_shouldDecrementRemainingQuantity()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_shouldDecrementRemainingQuantity()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_whenQuotaExceeded_shouldThrowException()&gt; calls method &lt;com.hae.shop.application.CouponServiceImpl.useCoupon(java.lang.Long, java.lang.Long)&gt; in (CouponServiceTest.java:190)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_whenQuotaExceeded_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (CouponServiceTest.java:193)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_whenQuotaExceeded_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (CouponServiceTest.java:191)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_whenQuotaExceeded_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (CouponServiceTest.java:192)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_whenQuotaExceeded_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (CouponServiceTest.java:192)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_whenQuotaExceeded_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (CouponServiceTest.java:190)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_whenQuotaExceeded_shouldThrowException()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (CouponServiceTest.java:188)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_whenQuotaExceeded_shouldThrowException()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (CouponServiceTest.java:188)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_whenQuotaExceeded_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.CouponServiceTest.useCoupon_whenQuotaExceeded_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (CouponServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceImpl.register(java.lang.String, java.lang.String, java.lang.String)&gt; calls method &lt;org.springframework.security.crypto.password.PasswordEncoder.encode(java.lang.CharSequence)&gt; in (MemberServiceImpl.java:31)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberExists_shouldReturnMember()&gt; calls method &lt;com.hae.shop.application.MemberServiceImpl.findByEmail(java.lang.String)&gt; in (MemberServiceTest.java:93)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.assertj.core.api.AbstractStringAssert.isEqualTo(java.lang.String)&gt; in (MemberServiceTest.java:97)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Object)&gt; in (MemberServiceTest.java:96)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.String)&gt; in (MemberServiceTest.java:97)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.assertj.core.api.ObjectAssert.isNotNull()&gt; in (MemberServiceTest.java:96)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (MemberServiceTest.java:98)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (MemberServiceTest.java:90)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (MemberServiceTest.java:90)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberExists_shouldReturnMember()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberExists_shouldReturnMember()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;com.hae.shop.application.MemberServiceImpl.findByEmail(java.lang.String)&gt; in (MemberServiceTest.java:108)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (MemberServiceTest.java:111)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (MemberServiceTest.java:109)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (MemberServiceTest.java:110)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (MemberServiceTest.java:110)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (MemberServiceTest.java:108)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (MemberServiceTest.java:105)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (MemberServiceTest.java:105)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberNotExists_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.findByEmail_whenMemberNotExists_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberExists_shouldReturnMember()&gt; calls method &lt;com.hae.shop.application.MemberServiceImpl.findById(java.lang.Long)&gt; in (MemberServiceTest.java:121)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.assertj.core.api.AbstractLongAssert.isEqualTo(long)&gt; in (MemberServiceTest.java:125)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.assertj.core.api.AbstractStringAssert.isEqualTo(java.lang.String)&gt; in (MemberServiceTest.java:126)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Long)&gt; in (MemberServiceTest.java:125)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Object)&gt; in (MemberServiceTest.java:124)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.String)&gt; in (MemberServiceTest.java:126)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.assertj.core.api.ObjectAssert.isNotNull()&gt; in (MemberServiceTest.java:124)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (MemberServiceTest.java:127)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (MemberServiceTest.java:118)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberExists_shouldReturnMember()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (MemberServiceTest.java:118)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberExists_shouldReturnMember()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberExists_shouldReturnMember()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;com.hae.shop.application.MemberServiceImpl.findById(java.lang.Long)&gt; in (MemberServiceTest.java:137)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (MemberServiceTest.java:140)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (MemberServiceTest.java:138)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (MemberServiceTest.java:139)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (MemberServiceTest.java:139)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (MemberServiceTest.java:137)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (MemberServiceTest.java:134)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberNotExists_shouldThrowException()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (MemberServiceTest.java:134)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberNotExists_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.findById_whenMemberNotExists_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;com.hae.shop.application.MemberServiceImpl.register(java.lang.String, java.lang.String, java.lang.String)&gt; in (MemberServiceTest.java:152)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (MemberServiceTest.java:149)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.mockito.ArgumentMatchers.anyString()&gt; in (MemberServiceTest.java:147)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.mockito.Mockito.argThat(org.mockito.ArgumentMatcher)&gt; in (MemberServiceTest.java:156)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (MemberServiceTest.java:155)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (MemberServiceTest.java:156)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (MemberServiceTest.java:147)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (MemberServiceTest.java:148)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (MemberServiceTest.java:149)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.mockito.invocation.InvocationOnMock.getArgument(int)&gt; in (MemberServiceTest.java:149)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenAnswer(org.mockito.stubbing.Answer)&gt; in (MemberServiceTest.java:149)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (MemberServiceTest.java:147)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (MemberServiceTest.java:148)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.springframework.security.crypto.password.PasswordEncoder.encode(java.lang.CharSequence)&gt; in (MemberServiceTest.java:148)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; calls method &lt;org.springframework.security.crypto.password.PasswordEncoder.encode(java.lang.CharSequence)&gt; in (MemberServiceTest.java:155)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_shouldEncodePassword()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; calls method &lt;com.hae.shop.application.MemberServiceImpl.register(java.lang.String, java.lang.String, java.lang.String)&gt; in (MemberServiceTest.java:79)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (MemberServiceTest.java:82)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (MemberServiceTest.java:80)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (MemberServiceTest.java:81)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (MemberServiceTest.java:81)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (MemberServiceTest.java:79)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (MemberServiceTest.java:83)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; calls method &lt;org.mockito.Mockito.never()&gt; in (MemberServiceTest.java:83)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object, org.mockito.verification.VerificationMode)&gt; in (MemberServiceTest.java:83)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (MemberServiceTest.java:76)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (MemberServiceTest.java:76)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenEmailAlreadyExists_shouldThrowException()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;com.hae.shop.application.MemberServiceImpl.register(java.lang.String, java.lang.String, java.lang.String)&gt; in (MemberServiceTest.java:61)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (MemberServiceTest.java:68)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.assertj.core.api.AbstractLongAssert.isEqualTo(long)&gt; in (MemberServiceTest.java:65)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.assertj.core.api.AbstractStringAssert.isEqualTo(java.lang.String)&gt; in (MemberServiceTest.java:66)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.assertj.core.api.AbstractStringAssert.isEqualTo(java.lang.String)&gt; in (MemberServiceTest.java:67)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (MemberServiceTest.java:68)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Long)&gt; in (MemberServiceTest.java:65)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Object)&gt; in (MemberServiceTest.java:64)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.String)&gt; in (MemberServiceTest.java:66)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.String)&gt; in (MemberServiceTest.java:67)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.assertj.core.api.ObjectAssert.isNotNull()&gt; in (MemberServiceTest.java:64)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (MemberServiceTest.java:54)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (MemberServiceTest.java:69)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (MemberServiceTest.java:69)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (MemberServiceTest.java:52)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (MemberServiceTest.java:53)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (MemberServiceTest.java:54)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.mockito.invocation.InvocationOnMock.getArgument(int)&gt; in (MemberServiceTest.java:55)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenAnswer(org.mockito.stubbing.Answer)&gt; in (MemberServiceTest.java:54)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (MemberServiceTest.java:52)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (MemberServiceTest.java:53)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; calls method &lt;org.springframework.security.crypto.password.PasswordEncoder.encode(java.lang.CharSequence)&gt; in (MemberServiceTest.java:53)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.register_whenValidInput_shouldCreateMember()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.MemberServiceTest.setUp()&gt; is annotated with &lt;org.junit.jupiter.api.BeforeEach&gt; in (MemberServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldSucceed()&gt; calls method &lt;com.hae.shop.application.OrderServiceImpl.completePayment(java.lang.Long)&gt; in (OrderServiceTest.java:135)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldSucceed()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (OrderServiceTest.java:137)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldSucceed()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (OrderServiceTest.java:137)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldSucceed()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (OrderServiceTest.java:133)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldSucceed()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (OrderServiceTest.java:138)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldSucceed()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (OrderServiceTest.java:138)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldSucceed()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (OrderServiceTest.java:132)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldSucceed()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (OrderServiceTest.java:133)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldSucceed()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (OrderServiceTest.java:132)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldSucceed()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (OrderServiceTest.java:133)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldSucceed()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldSucceed()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldThrowWhenInvalidStatus()&gt; calls method &lt;com.hae.shop.application.OrderServiceImpl.completePayment(java.lang.Long)&gt; in (OrderServiceTest.java:148)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldThrowWhenInvalidStatus()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (OrderServiceTest.java:151)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldThrowWhenInvalidStatus()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (OrderServiceTest.java:149)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldThrowWhenInvalidStatus()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (OrderServiceTest.java:150)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldThrowWhenInvalidStatus()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (OrderServiceTest.java:150)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldThrowWhenInvalidStatus()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (OrderServiceTest.java:148)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldThrowWhenInvalidStatus()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (OrderServiceTest.java:146)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldThrowWhenInvalidStatus()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (OrderServiceTest.java:146)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldThrowWhenInvalidStatus()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.completePayment_shouldThrowWhenInvalidStatus()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldCheckIdempotencyKey()&gt; calls method &lt;com.hae.shop.application.OrderServiceImpl.createOrder(java.lang.Long, java.lang.String)&gt; in (OrderServiceTest.java:87)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldCheckIdempotencyKey()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Object)&gt; in (OrderServiceTest.java:89)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldCheckIdempotencyKey()&gt; calls method &lt;org.assertj.core.api.ObjectAssert.isNotNull()&gt; in (OrderServiceTest.java:89)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldCheckIdempotencyKey()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (OrderServiceTest.java:81)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldCheckIdempotencyKey()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (OrderServiceTest.java:90)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldCheckIdempotencyKey()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (OrderServiceTest.java:80)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldCheckIdempotencyKey()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (OrderServiceTest.java:81)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldCheckIdempotencyKey()&gt; calls method &lt;org.mockito.invocation.InvocationOnMock.getArgument(int)&gt; in (OrderServiceTest.java:82)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldCheckIdempotencyKey()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenAnswer(org.mockito.stubbing.Answer)&gt; in (OrderServiceTest.java:81)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldCheckIdempotencyKey()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (OrderServiceTest.java:80)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldCheckIdempotencyKey()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldCheckIdempotencyKey()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;com.hae.shop.application.OrderServiceImpl.createOrder(java.lang.Long, java.lang.String)&gt; in (OrderServiceTest.java:67)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (OrderServiceTest.java:71)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;org.assertj.core.api.AbstractLongAssert.isEqualTo(long)&gt; in (OrderServiceTest.java:70)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (OrderServiceTest.java:71)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Long)&gt; in (OrderServiceTest.java:70)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Object)&gt; in (OrderServiceTest.java:69)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;org.assertj.core.api.ObjectAssert.isNotNull()&gt; in (OrderServiceTest.java:69)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (OrderServiceTest.java:61)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (OrderServiceTest.java:72)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (OrderServiceTest.java:72)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (OrderServiceTest.java:61)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;org.mockito.invocation.InvocationOnMock.getArgument(int)&gt; in (OrderServiceTest.java:62)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenAnswer(org.mockito.stubbing.Answer)&gt; in (OrderServiceTest.java:61)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldReturnOrder()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldThrowWhenDuplicateIdempotencyKey()&gt; calls method &lt;com.hae.shop.application.OrderServiceImpl.createOrder(java.lang.Long, java.lang.String)&gt; in (OrderServiceTest.java:100)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldThrowWhenDuplicateIdempotencyKey()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (OrderServiceTest.java:103)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldThrowWhenDuplicateIdempotencyKey()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (OrderServiceTest.java:101)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldThrowWhenDuplicateIdempotencyKey()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (OrderServiceTest.java:102)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldThrowWhenDuplicateIdempotencyKey()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (OrderServiceTest.java:102)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldThrowWhenDuplicateIdempotencyKey()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (OrderServiceTest.java:100)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldThrowWhenDuplicateIdempotencyKey()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (OrderServiceTest.java:98)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldThrowWhenDuplicateIdempotencyKey()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (OrderServiceTest.java:98)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldThrowWhenDuplicateIdempotencyKey()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.createOrder_shouldThrowWhenDuplicateIdempotencyKey()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldReturnOrder()&gt; calls method &lt;com.hae.shop.application.OrderServiceImpl.getOrder(java.lang.Long)&gt; in (OrderServiceTest.java:111)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldReturnOrder()&gt; calls method &lt;org.assertj.core.api.AbstractLongAssert.isEqualTo(long)&gt; in (OrderServiceTest.java:114)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldReturnOrder()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Long)&gt; in (OrderServiceTest.java:114)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldReturnOrder()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Object)&gt; in (OrderServiceTest.java:113)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldReturnOrder()&gt; calls method &lt;org.assertj.core.api.ObjectAssert.isNotNull()&gt; in (OrderServiceTest.java:113)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldReturnOrder()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (OrderServiceTest.java:115)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldReturnOrder()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (OrderServiceTest.java:109)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldReturnOrder()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (OrderServiceTest.java:109)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldReturnOrder()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldReturnOrder()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldThrowWhenNotFound()&gt; calls method &lt;com.hae.shop.application.OrderServiceImpl.getOrder(java.lang.Long)&gt; in (OrderServiceTest.java:123)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldThrowWhenNotFound()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (OrderServiceTest.java:126)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldThrowWhenNotFound()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (OrderServiceTest.java:124)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldThrowWhenNotFound()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (OrderServiceTest.java:125)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldThrowWhenNotFound()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (OrderServiceTest.java:125)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldThrowWhenNotFound()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (OrderServiceTest.java:123)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldThrowWhenNotFound()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (OrderServiceTest.java:121)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldThrowWhenNotFound()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (OrderServiceTest.java:121)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldThrowWhenNotFound()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.getOrder_shouldThrowWhenNotFound()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.OrderServiceTest.setUp()&gt; is annotated with &lt;org.junit.jupiter.api.BeforeEach&gt; in (OrderServiceTest.java:0)
+Method &lt;com.hae.shop.application.PaymentServiceTest.cancelPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;com.hae.shop.application.PaymentServiceImpl.cancelPayment(java.lang.String)&gt; in (PaymentServiceTest.java:56)
+Method &lt;com.hae.shop.application.PaymentServiceTest.cancelPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;org.assertj.core.api.AbstractBooleanAssert.isTrue()&gt; in (PaymentServiceTest.java:58)
+Method &lt;com.hae.shop.application.PaymentServiceTest.cancelPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(boolean)&gt; in (PaymentServiceTest.java:58)
+Method &lt;com.hae.shop.application.PaymentServiceTest.cancelPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;org.mockito.ArgumentMatchers.eq(java.lang.Object)&gt; in (PaymentServiceTest.java:53)
+Method &lt;com.hae.shop.application.PaymentServiceTest.cancelPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (PaymentServiceTest.java:53)
+Method &lt;com.hae.shop.application.PaymentServiceTest.cancelPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (PaymentServiceTest.java:54)
+Method &lt;com.hae.shop.application.PaymentServiceTest.cancelPayment_whenSuccess_shouldReturnTrue()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (PaymentServiceTest.java:0)
+Method &lt;com.hae.shop.application.PaymentServiceTest.cancelPayment_whenSuccess_shouldReturnTrue()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (PaymentServiceTest.java:0)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenFailure_shouldReturnFalse()&gt; calls method &lt;com.hae.shop.application.PaymentServiceImpl.processPayment(java.lang.Long, java.math.BigDecimal)&gt; in (PaymentServiceTest.java:45)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenFailure_shouldReturnFalse()&gt; calls method &lt;org.assertj.core.api.AbstractBooleanAssert.isFalse()&gt; in (PaymentServiceTest.java:47)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenFailure_shouldReturnFalse()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(boolean)&gt; in (PaymentServiceTest.java:47)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenFailure_shouldReturnFalse()&gt; calls method &lt;org.mockito.ArgumentMatchers.any()&gt; in (PaymentServiceTest.java:42)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenFailure_shouldReturnFalse()&gt; calls method &lt;org.mockito.ArgumentMatchers.any()&gt; in (PaymentServiceTest.java:42)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenFailure_shouldReturnFalse()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (PaymentServiceTest.java:42)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenFailure_shouldReturnFalse()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (PaymentServiceTest.java:43)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenFailure_shouldReturnFalse()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (PaymentServiceTest.java:0)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenFailure_shouldReturnFalse()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (PaymentServiceTest.java:0)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;com.hae.shop.application.PaymentServiceImpl.processPayment(java.lang.Long, java.math.BigDecimal)&gt; in (PaymentServiceTest.java:34)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;org.assertj.core.api.AbstractBooleanAssert.isTrue()&gt; in (PaymentServiceTest.java:36)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(boolean)&gt; in (PaymentServiceTest.java:36)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;org.mockito.ArgumentMatchers.any()&gt; in (PaymentServiceTest.java:31)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;org.mockito.ArgumentMatchers.any()&gt; in (PaymentServiceTest.java:31)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (PaymentServiceTest.java:31)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenSuccess_shouldReturnTrue()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (PaymentServiceTest.java:32)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenSuccess_shouldReturnTrue()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (PaymentServiceTest.java:0)
+Method &lt;com.hae.shop.application.PaymentServiceTest.processPayment_whenSuccess_shouldReturnTrue()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (PaymentServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;com.hae.shop.application.ProductServiceImpl.decrementStock(java.lang.Long, int)&gt; in (ProductConcurrencyTest.java:93)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;com.hae.shop.config.DistributedLock.executeWithLock(java.lang.String, long, long, java.util.concurrent.TimeUnit, java.lang.Runnable)&gt; in (ProductConcurrencyTest.java:71)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.assertj.core.api.AbstractBooleanAssert.isTrue()&gt; in (ProductConcurrencyTest.java:110)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.assertj.core.api.AbstractIntegerAssert.isEqualTo(int)&gt; in (ProductConcurrencyTest.java:112)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.assertj.core.api.AbstractIntegerAssert.isEqualTo(int)&gt; in (ProductConcurrencyTest.java:113)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(boolean)&gt; in (ProductConcurrencyTest.java:110)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(int)&gt; in (ProductConcurrencyTest.java:112)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(int)&gt; in (ProductConcurrencyTest.java:113)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.Mockito.any(java.lang.Class)&gt; in (ProductConcurrencyTest.java:71)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.Mockito.any(java.lang.Class)&gt; in (ProductConcurrencyTest.java:71)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.Mockito.any(java.lang.Class)&gt; in (ProductConcurrencyTest.java:81)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.Mockito.anyLong()&gt; in (ProductConcurrencyTest.java:71)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.Mockito.anyLong()&gt; in (ProductConcurrencyTest.java:71)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.Mockito.anyString()&gt; in (ProductConcurrencyTest.java:71)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.Mockito.doAnswer(org.mockito.stubbing.Answer)&gt; in (ProductConcurrencyTest.java:67)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (ProductConcurrencyTest.java:73)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (ProductConcurrencyTest.java:81)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.invocation.InvocationOnMock.getArgument(int)&gt; in (ProductConcurrencyTest.java:68)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.invocation.InvocationOnMock.getArgument(int)&gt; in (ProductConcurrencyTest.java:82)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenAnswer(org.mockito.stubbing.Answer)&gt; in (ProductConcurrencyTest.java:73)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenAnswer(org.mockito.stubbing.Answer)&gt; in (ProductConcurrencyTest.java:81)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; calls method &lt;org.mockito.stubbing.Stubber.when(java.lang.Object)&gt; in (ProductConcurrencyTest.java:71)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (ProductConcurrencyTest.java:0)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (ProductConcurrencyTest.java:0)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;com.hae.shop.application.ProductServiceImpl.decrementStock(java.lang.Long, int)&gt; in (ProductConcurrencyTest.java:155)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;com.hae.shop.config.DistributedLock.executeWithLock(java.lang.String, long, long, java.util.concurrent.TimeUnit, java.lang.Runnable)&gt; in (ProductConcurrencyTest.java:133)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.assertj.core.api.AbstractBooleanAssert.isTrue()&gt; in (ProductConcurrencyTest.java:167)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.assertj.core.api.AbstractIntegerAssert.isEqualTo(int)&gt; in (ProductConcurrencyTest.java:168)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(boolean)&gt; in (ProductConcurrencyTest.java:167)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(int)&gt; in (ProductConcurrencyTest.java:168)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.Mockito.any(java.lang.Class)&gt; in (ProductConcurrencyTest.java:133)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.Mockito.any(java.lang.Class)&gt; in (ProductConcurrencyTest.java:133)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.Mockito.any(java.lang.Class)&gt; in (ProductConcurrencyTest.java:143)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.Mockito.anyLong()&gt; in (ProductConcurrencyTest.java:133)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.Mockito.anyLong()&gt; in (ProductConcurrencyTest.java:133)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.Mockito.anyString()&gt; in (ProductConcurrencyTest.java:133)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.Mockito.doAnswer(org.mockito.stubbing.Answer)&gt; in (ProductConcurrencyTest.java:129)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (ProductConcurrencyTest.java:135)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (ProductConcurrencyTest.java:143)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.invocation.InvocationOnMock.getArgument(int)&gt; in (ProductConcurrencyTest.java:130)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.invocation.InvocationOnMock.getArgument(int)&gt; in (ProductConcurrencyTest.java:144)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenAnswer(org.mockito.stubbing.Answer)&gt; in (ProductConcurrencyTest.java:135)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenAnswer(org.mockito.stubbing.Answer)&gt; in (ProductConcurrencyTest.java:143)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; calls method &lt;org.mockito.stubbing.Stubber.when(java.lang.Object)&gt; in (ProductConcurrencyTest.java:133)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (ProductConcurrencyTest.java:0)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_fiftyConcurrentRequests_shouldAllSucceed()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (ProductConcurrencyTest.java:0)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_withoutLock_concurrentRequests_shouldHaveRaceCondition()&gt; calls method &lt;com.hae.shop.application.ProductServiceImpl.decrementStock(java.lang.Long, int)&gt; in (ProductConcurrencyTest.java:179)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_withoutLock_concurrentRequests_shouldHaveRaceCondition()&gt; calls method &lt;com.hae.shop.config.DistributedLock.executeWithLock(java.lang.String, long, long, java.util.concurrent.TimeUnit, java.lang.Runnable)&gt; in (ProductConcurrencyTest.java:185)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_withoutLock_concurrentRequests_shouldHaveRaceCondition()&gt; calls method &lt;org.mockito.Mockito.any(java.lang.Class)&gt; in (ProductConcurrencyTest.java:186)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_withoutLock_concurrentRequests_shouldHaveRaceCondition()&gt; calls method &lt;org.mockito.Mockito.any(java.lang.Class)&gt; in (ProductConcurrencyTest.java:186)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_withoutLock_concurrentRequests_shouldHaveRaceCondition()&gt; calls method &lt;org.mockito.Mockito.eq(java.lang.Object)&gt; in (ProductConcurrencyTest.java:186)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_withoutLock_concurrentRequests_shouldHaveRaceCondition()&gt; calls method &lt;org.mockito.Mockito.eq(long)&gt; in (ProductConcurrencyTest.java:186)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_withoutLock_concurrentRequests_shouldHaveRaceCondition()&gt; calls method &lt;org.mockito.Mockito.eq(long)&gt; in (ProductConcurrencyTest.java:186)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_withoutLock_concurrentRequests_shouldHaveRaceCondition()&gt; calls method &lt;org.mockito.Mockito.times(int)&gt; in (ProductConcurrencyTest.java:185)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_withoutLock_concurrentRequests_shouldHaveRaceCondition()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object, org.mockito.verification.VerificationMode)&gt; in (ProductConcurrencyTest.java:185)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_withoutLock_concurrentRequests_shouldHaveRaceCondition()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (ProductConcurrencyTest.java:0)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.decrementStock_withoutLock_concurrentRequests_shouldHaveRaceCondition()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (ProductConcurrencyTest.java:0)
+Method &lt;com.hae.shop.application.ProductConcurrencyTest.setUp()&gt; is annotated with &lt;org.junit.jupiter.api.BeforeEach&gt; in (ProductConcurrencyTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceImpl.decrementStock(java.lang.Long, int)&gt; calls method &lt;com.hae.shop.config.DistributedLock.executeWithLock(java.lang.String, long, long, java.util.concurrent.TimeUnit, java.lang.Runnable)&gt; in (ProductServiceImpl.java:61)
+Method &lt;com.hae.shop.application.ProductServiceTest.createProduct_shouldReturnProduct()&gt; calls method &lt;com.hae.shop.application.ProductServiceImpl.createProduct(java.lang.String, java.lang.String, java.math.BigDecimal, int, java.lang.String)&gt; in (ProductServiceTest.java:55)
+Method &lt;com.hae.shop.application.ProductServiceTest.createProduct_shouldReturnProduct()&gt; calls method &lt;org.assertj.core.api.AbstractStringAssert.isEqualTo(java.lang.String)&gt; in (ProductServiceTest.java:60)
+Method &lt;com.hae.shop.application.ProductServiceTest.createProduct_shouldReturnProduct()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Object)&gt; in (ProductServiceTest.java:59)
+Method &lt;com.hae.shop.application.ProductServiceTest.createProduct_shouldReturnProduct()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.String)&gt; in (ProductServiceTest.java:60)
+Method &lt;com.hae.shop.application.ProductServiceTest.createProduct_shouldReturnProduct()&gt; calls method &lt;org.assertj.core.api.ObjectAssert.isNotNull()&gt; in (ProductServiceTest.java:59)
+Method &lt;com.hae.shop.application.ProductServiceTest.createProduct_shouldReturnProduct()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (ProductServiceTest.java:53)
+Method &lt;com.hae.shop.application.ProductServiceTest.createProduct_shouldReturnProduct()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (ProductServiceTest.java:61)
+Method &lt;com.hae.shop.application.ProductServiceTest.createProduct_shouldReturnProduct()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (ProductServiceTest.java:61)
+Method &lt;com.hae.shop.application.ProductServiceTest.createProduct_shouldReturnProduct()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (ProductServiceTest.java:53)
+Method &lt;com.hae.shop.application.ProductServiceTest.createProduct_shouldReturnProduct()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (ProductServiceTest.java:53)
+Method &lt;com.hae.shop.application.ProductServiceTest.createProduct_shouldReturnProduct()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceTest.createProduct_shouldReturnProduct()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;com.hae.shop.application.ProductServiceImpl.decrementStock(java.lang.Long, int)&gt; in (ProductServiceTest.java:99)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;com.hae.shop.config.DistributedLock.executeWithLock(java.lang.String, long, long, java.util.concurrent.TimeUnit, java.lang.Runnable)&gt; in (ProductServiceTest.java:101)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;com.hae.shop.config.DistributedLock.executeWithLock(java.lang.String, long, long, java.util.concurrent.TimeUnit, java.lang.Runnable)&gt; in (ProductServiceTest.java:94)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (ProductServiceTest.java:102)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (ProductServiceTest.java:102)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (ProductServiceTest.java:104)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (ProductServiceTest.java:94)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (ProductServiceTest.java:94)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (ProductServiceTest.java:97)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.ArgumentMatchers.eq(java.lang.Object)&gt; in (ProductServiceTest.java:102)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.ArgumentMatchers.eq(long)&gt; in (ProductServiceTest.java:102)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.ArgumentMatchers.eq(long)&gt; in (ProductServiceTest.java:102)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.Mockito.anyLong()&gt; in (ProductServiceTest.java:94)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.Mockito.anyLong()&gt; in (ProductServiceTest.java:94)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.Mockito.anyString()&gt; in (ProductServiceTest.java:94)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.Mockito.doAnswer(org.mockito.stubbing.Answer)&gt; in (ProductServiceTest.java:90)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (ProductServiceTest.java:101)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (ProductServiceTest.java:104)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (ProductServiceTest.java:96)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (ProductServiceTest.java:97)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.invocation.InvocationOnMock.getArgument(int)&gt; in (ProductServiceTest.java:91)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.invocation.InvocationOnMock.getArgument(int)&gt; in (ProductServiceTest.java:97)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenAnswer(org.mockito.stubbing.Answer)&gt; in (ProductServiceTest.java:97)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (ProductServiceTest.java:96)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; calls method &lt;org.mockito.stubbing.Stubber.when(java.lang.Object)&gt; in (ProductServiceTest.java:94)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldSucceed()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;com.hae.shop.application.ProductServiceImpl.decrementStock(java.lang.Long, int)&gt; in (ProductServiceTest.java:120)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;com.hae.shop.config.DistributedLock.executeWithLock(java.lang.String, long, long, java.util.concurrent.TimeUnit, java.lang.Runnable)&gt; in (ProductServiceTest.java:116)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (ProductServiceTest.java:123)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (ProductServiceTest.java:121)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (ProductServiceTest.java:122)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (ProductServiceTest.java:122)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (ProductServiceTest.java:120)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (ProductServiceTest.java:116)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (ProductServiceTest.java:116)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.mockito.Mockito.anyLong()&gt; in (ProductServiceTest.java:116)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.mockito.Mockito.anyLong()&gt; in (ProductServiceTest.java:116)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.mockito.Mockito.anyString()&gt; in (ProductServiceTest.java:116)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.mockito.Mockito.doAnswer(org.mockito.stubbing.Answer)&gt; in (ProductServiceTest.java:112)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (ProductServiceTest.java:118)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.mockito.invocation.InvocationOnMock.getArgument(int)&gt; in (ProductServiceTest.java:113)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (ProductServiceTest.java:118)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; calls method &lt;org.mockito.stubbing.Stubber.when(java.lang.Object)&gt; in (ProductServiceTest.java:116)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenInsufficientStock()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;com.hae.shop.application.ProductServiceImpl.decrementStock(java.lang.Long, int)&gt; in (ProductServiceTest.java:139)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;com.hae.shop.config.DistributedLock.executeWithLock(java.lang.String, long, long, java.util.concurrent.TimeUnit, java.lang.Runnable)&gt; in (ProductServiceTest.java:135)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (ProductServiceTest.java:142)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (ProductServiceTest.java:140)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (ProductServiceTest.java:141)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (ProductServiceTest.java:141)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (ProductServiceTest.java:139)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (ProductServiceTest.java:135)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.mockito.ArgumentMatchers.any(java.lang.Class)&gt; in (ProductServiceTest.java:135)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.mockito.Mockito.anyLong()&gt; in (ProductServiceTest.java:135)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.mockito.Mockito.anyLong()&gt; in (ProductServiceTest.java:135)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.mockito.Mockito.anyString()&gt; in (ProductServiceTest.java:135)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.mockito.Mockito.doAnswer(org.mockito.stubbing.Answer)&gt; in (ProductServiceTest.java:131)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (ProductServiceTest.java:137)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.mockito.invocation.InvocationOnMock.getArgument(int)&gt; in (ProductServiceTest.java:132)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (ProductServiceTest.java:137)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; calls method &lt;org.mockito.stubbing.Stubber.when(java.lang.Object)&gt; in (ProductServiceTest.java:135)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceTest.decrementStock_shouldThrowWhenProductNotActive()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldReturnProduct()&gt; calls method &lt;com.hae.shop.application.ProductServiceImpl.getProduct(java.lang.Long)&gt; in (ProductServiceTest.java:69)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldReturnProduct()&gt; calls method &lt;org.assertj.core.api.AbstractLongAssert.isEqualTo(long)&gt; in (ProductServiceTest.java:72)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldReturnProduct()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Long)&gt; in (ProductServiceTest.java:72)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldReturnProduct()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Object)&gt; in (ProductServiceTest.java:71)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldReturnProduct()&gt; calls method &lt;org.assertj.core.api.ObjectAssert.isNotNull()&gt; in (ProductServiceTest.java:71)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldReturnProduct()&gt; calls method &lt;org.mockito.Mockito.verify(java.lang.Object)&gt; in (ProductServiceTest.java:73)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldReturnProduct()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (ProductServiceTest.java:67)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldReturnProduct()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (ProductServiceTest.java:67)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldReturnProduct()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldReturnProduct()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldThrowWhenNotFound()&gt; calls method &lt;com.hae.shop.application.ProductServiceImpl.getProduct(java.lang.Long)&gt; in (ProductServiceTest.java:81)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldThrowWhenNotFound()&gt; calls method &lt;org.assertj.core.api.AbstractComparableAssert.isEqualTo(java.lang.Object)&gt; in (ProductServiceTest.java:84)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldThrowWhenNotFound()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.isInstanceOf(java.lang.Class)&gt; in (ProductServiceTest.java:82)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldThrowWhenNotFound()&gt; calls method &lt;org.assertj.core.api.AbstractThrowableAssert.satisfies([Lorg.assertj.core.api.ThrowingConsumer;)&gt; in (ProductServiceTest.java:83)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldThrowWhenNotFound()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThat(java.lang.Comparable)&gt; in (ProductServiceTest.java:83)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldThrowWhenNotFound()&gt; calls method &lt;org.assertj.core.api.Assertions.assertThatThrownBy(org.assertj.core.api.ThrowableAssert$ThrowingCallable)&gt; in (ProductServiceTest.java:81)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldThrowWhenNotFound()&gt; calls method &lt;org.mockito.Mockito.when(java.lang.Object)&gt; in (ProductServiceTest.java:79)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldThrowWhenNotFound()&gt; calls method &lt;org.mockito.stubbing.OngoingStubbing.thenReturn(java.lang.Object)&gt; in (ProductServiceTest.java:79)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldThrowWhenNotFound()&gt; is annotated with &lt;org.junit.jupiter.api.DisplayName&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceTest.getProduct_shouldThrowWhenNotFound()&gt; is annotated with &lt;org.junit.jupiter.api.Test&gt; in (ProductServiceTest.java:0)
+Method &lt;com.hae.shop.application.ProductServiceTest.setUp()&gt; is annotated with &lt;org.junit.jupiter.api.BeforeEach&gt; in (ProductServiceTest.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:86)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:165)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.hae.shop.architecture.ArchitectureTest.application_shouldOnlyDependOnDomain(ArchitectureTest.java:57)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="interfaces_shouldOnlyUseDomainOrDtos()"></a>
+<h3 class="failures">인터페이스 레이어는 도메인 레이어를 직접 사용할 수 있다</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Architecture Violation [Priority: MEDIUM] - Rule 'classes that reside in a package 'com.hae.shop.interfaces..' should only depend on classes that reside in any package ['com.hae.shop.domain..', 'com.hae.shop.common..', 'com.hae.shop.application..', 'java..', 'org.springframework..', 'jakarta.validation..', 'io.swagger.v3.oas.annotations..', 'lombok..']' was violated (81 times):
+Constructor &lt;com.hae.shop.interfaces.member.MemberController.&lt;init&gt;(com.hae.shop.domain.member.port.in.MemberService, com.hae.shop.config.security.JwtTokenProvider, org.springframework.security.crypto.password.PasswordEncoder)&gt; has parameter of type &lt;com.hae.shop.config.security.JwtTokenProvider&gt; in (MemberController.java:0)
+Constructor &lt;com.hae.shop.interfaces.member.dto.LoginResponse.&lt;init&gt;(java.lang.String, java.lang.String, java.lang.Long, java.lang.String, com.hae.shop.interfaces.member.dto.MemberResponse)&gt; has parameter of type &lt;com.hae.shop.interfaces.member.dto.MemberResponse&gt; in (LoginResponse.java:0)
+Constructor &lt;com.hae.shop.interfaces.order.dto.OrderResponse.&lt;init&gt;(java.lang.Long, java.lang.String, java.lang.Long, java.math.BigDecimal, java.math.BigDecimal, java.math.BigDecimal, java.lang.String, java.util.List, java.time.Instant, java.time.Instant)&gt; has generic parameter type &lt;java.util.List&lt;com.hae.shop.interfaces.order.dto.OrderItemResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.order.dto.OrderItemResponse&gt; in (OrderResponse.java:0)
+Constructor &lt;com.hae.shop.interfaces.product.dto.ProductListResponse.&lt;init&gt;(java.util.List)&gt; has generic parameter type &lt;java.util.List&lt;com.hae.shop.interfaces.product.dto.ProductResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.product.dto.ProductResponse&gt; in (ProductListResponse.java:0)
+Field &lt;com.hae.shop.interfaces.member.MemberController.jwtTokenProvider&gt; has type &lt;com.hae.shop.config.security.JwtTokenProvider&gt; in (MemberController.java:0)
+Field &lt;com.hae.shop.interfaces.member.dto.LoginResponse.member&gt; has type &lt;com.hae.shop.interfaces.member.dto.MemberResponse&gt; in (LoginResponse.java:0)
+Field &lt;com.hae.shop.interfaces.order.dto.OrderResponse.items&gt; has generic type &lt;java.util.List&lt;com.hae.shop.interfaces.order.dto.OrderItemResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.order.dto.OrderItemResponse&gt; in (OrderResponse.java:0)
+Field &lt;com.hae.shop.interfaces.product.dto.ProductListResponse.products&gt; has generic type &lt;java.util.List&lt;com.hae.shop.interfaces.product.dto.ProductResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.product.dto.ProductResponse&gt; in (ProductListResponse.java:0)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.coupon.dto.CouponResponse.from(com.hae.shop.domain.coupon.model.Coupon)&gt; in (CouponController.java:41)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.coupon.dto.CreateCouponRequest.code()&gt; in (CouponController.java:28)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.coupon.dto.CreateCouponRequest.discountValue()&gt; in (CouponController.java:31)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.coupon.dto.CreateCouponRequest.maxDiscountAmount()&gt; in (CouponController.java:33)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.coupon.dto.CreateCouponRequest.minPurchaseAmount()&gt; in (CouponController.java:32)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.coupon.dto.CreateCouponRequest.name()&gt; in (CouponController.java:29)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.coupon.dto.CreateCouponRequest.totalQuantity()&gt; in (CouponController.java:36)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.coupon.dto.CreateCouponRequest.totalQuantity()&gt; in (CouponController.java:37)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.coupon.dto.CreateCouponRequest.type()&gt; in (CouponController.java:30)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.coupon.dto.CreateCouponRequest.validFrom()&gt; in (CouponController.java:34)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.coupon.dto.CreateCouponRequest.validTo()&gt; in (CouponController.java:35)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.coupon.dto.CouponResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.coupon.dto.CouponResponse&gt; in (CouponController.java:0)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.createCoupon(com.hae.shop.interfaces.coupon.dto.CreateCouponRequest)&gt; has parameter of type &lt;com.hae.shop.interfaces.coupon.dto.CreateCouponRequest&gt; in (CouponController.java:0)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.getActiveCoupons()&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;java.util.List&lt;com.hae.shop.interfaces.coupon.dto.CouponResponse&gt;&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.coupon.dto.CouponResponse&gt; in (CouponController.java:0)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.getActiveCoupons()&gt; references method &lt;com.hae.shop.interfaces.coupon.dto.CouponResponse.from(com.hae.shop.domain.coupon.model.Coupon)&gt; in (CouponController.java:53)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.getCoupon(java.lang.Long)&gt; calls method &lt;com.hae.shop.interfaces.coupon.dto.CouponResponse.from(com.hae.shop.domain.coupon.model.Coupon)&gt; in (CouponController.java:47)
+Method &lt;com.hae.shop.interfaces.coupon.CouponController.getCoupon(java.lang.Long)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.coupon.dto.CouponResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.coupon.dto.CouponResponse&gt; in (CouponController.java:0)
+Method &lt;com.hae.shop.interfaces.member.MemberController.getMember(java.lang.Long)&gt; calls constructor &lt;com.hae.shop.interfaces.member.dto.MemberResponse.&lt;init&gt;(java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.time.Instant)&gt; in (MemberController.java:52)
+Method &lt;com.hae.shop.interfaces.member.MemberController.getMember(java.lang.Long)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.member.dto.MemberResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.member.dto.MemberResponse&gt; in (MemberController.java:0)
+Method &lt;com.hae.shop.interfaces.member.MemberController.login(com.hae.shop.interfaces.member.dto.LoginRequest)&gt; calls constructor &lt;com.hae.shop.interfaces.member.dto.LoginResponse.&lt;init&gt;(java.lang.String, java.lang.String, java.lang.Long, java.lang.String, com.hae.shop.interfaces.member.dto.MemberResponse)&gt; in (MemberController.java:77)
+Method &lt;com.hae.shop.interfaces.member.MemberController.login(com.hae.shop.interfaces.member.dto.LoginRequest)&gt; calls constructor &lt;com.hae.shop.interfaces.member.dto.MemberResponse.&lt;init&gt;(java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.time.Instant)&gt; in (MemberController.java:74)
+Method &lt;com.hae.shop.interfaces.member.MemberController.login(com.hae.shop.interfaces.member.dto.LoginRequest)&gt; calls method &lt;com.hae.shop.config.security.JwtTokenProvider.generateAccessToken(java.lang.String)&gt; in (MemberController.java:65)
+Method &lt;com.hae.shop.interfaces.member.MemberController.login(com.hae.shop.interfaces.member.dto.LoginRequest)&gt; calls method &lt;com.hae.shop.config.security.JwtTokenProvider.generateRefreshToken(java.lang.String)&gt; in (MemberController.java:66)
+Method &lt;com.hae.shop.interfaces.member.MemberController.login(com.hae.shop.interfaces.member.dto.LoginRequest)&gt; calls method &lt;com.hae.shop.interfaces.member.dto.LoginRequest.email()&gt; in (MemberController.java:59)
+Method &lt;com.hae.shop.interfaces.member.MemberController.login(com.hae.shop.interfaces.member.dto.LoginRequest)&gt; calls method &lt;com.hae.shop.interfaces.member.dto.LoginRequest.password()&gt; in (MemberController.java:61)
+Method &lt;com.hae.shop.interfaces.member.MemberController.login(com.hae.shop.interfaces.member.dto.LoginRequest)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.member.dto.LoginResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.member.dto.LoginResponse&gt; in (MemberController.java:0)
+Method &lt;com.hae.shop.interfaces.member.MemberController.login(com.hae.shop.interfaces.member.dto.LoginRequest)&gt; has parameter of type &lt;com.hae.shop.interfaces.member.dto.LoginRequest&gt; in (MemberController.java:0)
+Method &lt;com.hae.shop.interfaces.member.MemberController.register(com.hae.shop.interfaces.member.dto.RegisterRequest)&gt; calls constructor &lt;com.hae.shop.interfaces.member.dto.MemberResponse.&lt;init&gt;(java.lang.Long, java.lang.String, java.lang.String, java.lang.String, java.time.Instant)&gt; in (MemberController.java:39)
+Method &lt;com.hae.shop.interfaces.member.MemberController.register(com.hae.shop.interfaces.member.dto.RegisterRequest)&gt; calls method &lt;com.hae.shop.interfaces.member.dto.RegisterRequest.email()&gt; in (MemberController.java:33)
+Method &lt;com.hae.shop.interfaces.member.MemberController.register(com.hae.shop.interfaces.member.dto.RegisterRequest)&gt; calls method &lt;com.hae.shop.interfaces.member.dto.RegisterRequest.nickname()&gt; in (MemberController.java:33)
+Method &lt;com.hae.shop.interfaces.member.MemberController.register(com.hae.shop.interfaces.member.dto.RegisterRequest)&gt; calls method &lt;com.hae.shop.interfaces.member.dto.RegisterRequest.password()&gt; in (MemberController.java:33)
+Method &lt;com.hae.shop.interfaces.member.MemberController.register(com.hae.shop.interfaces.member.dto.RegisterRequest)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.member.dto.MemberResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.member.dto.MemberResponse&gt; in (MemberController.java:0)
+Method &lt;com.hae.shop.interfaces.member.MemberController.register(com.hae.shop.interfaces.member.dto.RegisterRequest)&gt; has parameter of type &lt;com.hae.shop.interfaces.member.dto.RegisterRequest&gt; in (MemberController.java:0)
+Method &lt;com.hae.shop.interfaces.member.dto.LoginResponse.member()&gt; has return type &lt;com.hae.shop.interfaces.member.dto.MemberResponse&gt; in (LoginResponse.java:0)
+Method &lt;com.hae.shop.interfaces.order.OrderController.addItem(java.lang.Long, com.hae.shop.interfaces.order.dto.AddOrderItemRequest)&gt; calls method &lt;com.hae.shop.interfaces.order.dto.AddOrderItemRequest.productId()&gt; in (OrderController.java:40)
+Method &lt;com.hae.shop.interfaces.order.OrderController.addItem(java.lang.Long, com.hae.shop.interfaces.order.dto.AddOrderItemRequest)&gt; calls method &lt;com.hae.shop.interfaces.order.dto.AddOrderItemRequest.quantity()&gt; in (OrderController.java:40)
+Method &lt;com.hae.shop.interfaces.order.OrderController.addItem(java.lang.Long, com.hae.shop.interfaces.order.dto.AddOrderItemRequest)&gt; calls method &lt;com.hae.shop.interfaces.order.dto.OrderResponse.from(com.hae.shop.domain.order.model.Order)&gt; in (OrderController.java:41)
+Method &lt;com.hae.shop.interfaces.order.OrderController.addItem(java.lang.Long, com.hae.shop.interfaces.order.dto.AddOrderItemRequest)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.order.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.order.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.hae.shop.interfaces.order.OrderController.addItem(java.lang.Long, com.hae.shop.interfaces.order.dto.AddOrderItemRequest)&gt; has parameter of type &lt;com.hae.shop.interfaces.order.dto.AddOrderItemRequest&gt; in (OrderController.java:0)
+Method &lt;com.hae.shop.interfaces.order.OrderController.applyCoupon(java.lang.Long, com.hae.shop.interfaces.order.dto.ApplyCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.order.dto.ApplyCouponRequest.couponId()&gt; in (OrderController.java:46)
+Method &lt;com.hae.shop.interfaces.order.OrderController.applyCoupon(java.lang.Long, com.hae.shop.interfaces.order.dto.ApplyCouponRequest)&gt; calls method &lt;com.hae.shop.interfaces.order.dto.OrderResponse.from(com.hae.shop.domain.order.model.Order)&gt; in (OrderController.java:47)
+Method &lt;com.hae.shop.interfaces.order.OrderController.applyCoupon(java.lang.Long, com.hae.shop.interfaces.order.dto.ApplyCouponRequest)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.order.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.order.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.hae.shop.interfaces.order.OrderController.applyCoupon(java.lang.Long, com.hae.shop.interfaces.order.dto.ApplyCouponRequest)&gt; has parameter of type &lt;com.hae.shop.interfaces.order.dto.ApplyCouponRequest&gt; in (OrderController.java:0)
+Method &lt;com.hae.shop.interfaces.order.OrderController.cancelOrder(java.lang.Long, com.hae.shop.interfaces.order.dto.CancelOrderRequest)&gt; calls method &lt;com.hae.shop.interfaces.order.dto.CancelOrderRequest.reason()&gt; in (OrderController.java:58)
+Method &lt;com.hae.shop.interfaces.order.OrderController.cancelOrder(java.lang.Long, com.hae.shop.interfaces.order.dto.CancelOrderRequest)&gt; calls method &lt;com.hae.shop.interfaces.order.dto.OrderResponse.from(com.hae.shop.domain.order.model.Order)&gt; in (OrderController.java:59)
+Method &lt;com.hae.shop.interfaces.order.OrderController.cancelOrder(java.lang.Long, com.hae.shop.interfaces.order.dto.CancelOrderRequest)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.order.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.order.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.hae.shop.interfaces.order.OrderController.cancelOrder(java.lang.Long, com.hae.shop.interfaces.order.dto.CancelOrderRequest)&gt; has parameter of type &lt;com.hae.shop.interfaces.order.dto.CancelOrderRequest&gt; in (OrderController.java:0)
+Method &lt;com.hae.shop.interfaces.order.OrderController.createOrder(java.lang.String, com.hae.shop.interfaces.order.dto.CreateOrderRequest)&gt; calls method &lt;com.hae.shop.interfaces.order.dto.CreateOrderRequest.memberId()&gt; in (OrderController.java:28)
+Method &lt;com.hae.shop.interfaces.order.OrderController.createOrder(java.lang.String, com.hae.shop.interfaces.order.dto.CreateOrderRequest)&gt; calls method &lt;com.hae.shop.interfaces.order.dto.OrderResponse.from(com.hae.shop.domain.order.model.Order)&gt; in (OrderController.java:29)
+Method &lt;com.hae.shop.interfaces.order.OrderController.createOrder(java.lang.String, com.hae.shop.interfaces.order.dto.CreateOrderRequest)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.order.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.order.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.hae.shop.interfaces.order.OrderController.createOrder(java.lang.String, com.hae.shop.interfaces.order.dto.CreateOrderRequest)&gt; has parameter of type &lt;com.hae.shop.interfaces.order.dto.CreateOrderRequest&gt; in (OrderController.java:0)
+Method &lt;com.hae.shop.interfaces.order.OrderController.getOrder(java.lang.Long)&gt; calls method &lt;com.hae.shop.interfaces.order.dto.OrderResponse.from(com.hae.shop.domain.order.model.Order)&gt; in (OrderController.java:35)
+Method &lt;com.hae.shop.interfaces.order.OrderController.getOrder(java.lang.Long)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.order.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.order.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.hae.shop.interfaces.order.OrderController.payOrder(java.lang.Long, com.hae.shop.interfaces.order.dto.PayOrderRequest)&gt; calls method &lt;com.hae.shop.interfaces.order.dto.OrderResponse.from(com.hae.shop.domain.order.model.Order)&gt; in (OrderController.java:53)
+Method &lt;com.hae.shop.interfaces.order.OrderController.payOrder(java.lang.Long, com.hae.shop.interfaces.order.dto.PayOrderRequest)&gt; calls method &lt;com.hae.shop.interfaces.order.dto.PayOrderRequest.paymentToken()&gt; in (OrderController.java:52)
+Method &lt;com.hae.shop.interfaces.order.OrderController.payOrder(java.lang.Long, com.hae.shop.interfaces.order.dto.PayOrderRequest)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.order.dto.OrderResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.order.dto.OrderResponse&gt; in (OrderController.java:0)
+Method &lt;com.hae.shop.interfaces.order.OrderController.payOrder(java.lang.Long, com.hae.shop.interfaces.order.dto.PayOrderRequest)&gt; has parameter of type &lt;com.hae.shop.interfaces.order.dto.PayOrderRequest&gt; in (OrderController.java:0)
+Method &lt;com.hae.shop.interfaces.order.dto.OrderResponse.from(com.hae.shop.domain.order.model.Order)&gt; references method &lt;com.hae.shop.interfaces.order.dto.OrderItemResponse.from(com.hae.shop.domain.order.model.OrderItem)&gt; in (OrderResponse.java:27)
+Method &lt;com.hae.shop.interfaces.order.dto.OrderResponse.items()&gt; has generic return type &lt;java.util.List&lt;com.hae.shop.interfaces.order.dto.OrderItemResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.order.dto.OrderItemResponse&gt; in (OrderResponse.java:0)
+Method &lt;com.hae.shop.interfaces.product.ProductController.createProduct(com.hae.shop.interfaces.product.dto.CreateProductRequest)&gt; calls method &lt;com.hae.shop.interfaces.product.dto.CreateProductRequest.category()&gt; in (ProductController.java:26)
+Method &lt;com.hae.shop.interfaces.product.ProductController.createProduct(com.hae.shop.interfaces.product.dto.CreateProductRequest)&gt; calls method &lt;com.hae.shop.interfaces.product.dto.CreateProductRequest.description()&gt; in (ProductController.java:26)
+Method &lt;com.hae.shop.interfaces.product.ProductController.createProduct(com.hae.shop.interfaces.product.dto.CreateProductRequest)&gt; calls method &lt;com.hae.shop.interfaces.product.dto.CreateProductRequest.name()&gt; in (ProductController.java:26)
+Method &lt;com.hae.shop.interfaces.product.ProductController.createProduct(com.hae.shop.interfaces.product.dto.CreateProductRequest)&gt; calls method &lt;com.hae.shop.interfaces.product.dto.CreateProductRequest.price()&gt; in (ProductController.java:26)
+Method &lt;com.hae.shop.interfaces.product.ProductController.createProduct(com.hae.shop.interfaces.product.dto.CreateProductRequest)&gt; calls method &lt;com.hae.shop.interfaces.product.dto.CreateProductRequest.stockQuantity()&gt; in (ProductController.java:26)
+Method &lt;com.hae.shop.interfaces.product.ProductController.createProduct(com.hae.shop.interfaces.product.dto.CreateProductRequest)&gt; calls method &lt;com.hae.shop.interfaces.product.dto.ProductResponse.from(com.hae.shop.domain.product.model.Product)&gt; in (ProductController.java:28)
+Method &lt;com.hae.shop.interfaces.product.ProductController.createProduct(com.hae.shop.interfaces.product.dto.CreateProductRequest)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.product.dto.ProductResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.product.dto.ProductResponse&gt; in (ProductController.java:0)
+Method &lt;com.hae.shop.interfaces.product.ProductController.createProduct(com.hae.shop.interfaces.product.dto.CreateProductRequest)&gt; has parameter of type &lt;com.hae.shop.interfaces.product.dto.CreateProductRequest&gt; in (ProductController.java:0)
+Method &lt;com.hae.shop.interfaces.product.ProductController.getProduct(java.lang.Long)&gt; calls method &lt;com.hae.shop.interfaces.product.dto.ProductResponse.from(com.hae.shop.domain.product.model.Product)&gt; in (ProductController.java:44)
+Method &lt;com.hae.shop.interfaces.product.ProductController.getProduct(java.lang.Long)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.product.dto.ProductResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.product.dto.ProductResponse&gt; in (ProductController.java:0)
+Method &lt;com.hae.shop.interfaces.product.ProductController.getProducts(java.lang.String)&gt; calls constructor &lt;com.hae.shop.interfaces.product.dto.ProductListResponse.&lt;init&gt;(java.util.List)&gt; in (ProductController.java:38)
+Method &lt;com.hae.shop.interfaces.product.ProductController.getProducts(java.lang.String)&gt; has generic return type &lt;org.springframework.http.ResponseEntity&lt;com.hae.shop.interfaces.product.dto.ProductListResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.product.dto.ProductListResponse&gt; in (ProductController.java:0)
+Method &lt;com.hae.shop.interfaces.product.ProductController.getProducts(java.lang.String)&gt; references method &lt;com.hae.shop.interfaces.product.dto.ProductResponse.from(com.hae.shop.domain.product.model.Product)&gt; in (ProductController.java:35)
+Method &lt;com.hae.shop.interfaces.product.dto.ProductListResponse.products()&gt; has generic return type &lt;java.util.List&lt;com.hae.shop.interfaces.product.dto.ProductResponse&gt;&gt; with type argument depending on &lt;com.hae.shop.interfaces.product.dto.ProductResponse&gt; in (ProductListResponse.java:0)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.assertNoViolation(ArchRule.java:94)
+	at com.tngtech.archunit.lang.ArchRule$Assertions.check(ArchRule.java:86)
+	at com.tngtech.archunit.lang.ArchRule$Factory$SimpleArchRule.check(ArchRule.java:165)
+	at com.tngtech.archunit.lang.syntax.ObjectsShouldInternal.check(ObjectsShouldInternal.java:81)
+	at com.hae.shop.architecture.ArchitectureTest.interfaces_shouldOnlyUseDomainOrDtos(ArchitectureTest.java:76)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">애플리케이션 레이어는 인프라 레이어에 직접 의존하지 않아야 한다</td>
+<td class="failures">application_shouldOnlyDependOnDomain()</td>
+<td class="failures">0.015s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">도메인 모델은 JPA 엔티티 어노테이션을 가지지 않아야 한다</td>
+<td class="success">domainModels_shouldNotHaveJpaAnnotations()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">도메인 레이어는 인프라 레이어에 의존하지 않아야 한다</td>
+<td class="success">domain_shouldNotDependOnInfrastructure()</td>
+<td class="success">0.055s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">도메인 레이어는 Spring 프레임워크에 의존하지 않아야 한다</td>
+<td class="success">domain_shouldNotDependOnSpring()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">인터페이스 레이어는 도메인 레이어를 직접 사용할 수 있다</td>
+<td class="failures">interfaces_shouldOnlyUseDomainOrDtos()</td>
+<td class="failures">0.020s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">순환 의존성이 없어야 한다</td>
+<td class="success">noCyclicDependencies()</td>
+<td class="success">0.092s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">Port 인터페이스는 Domain 레이어에 위치해야 한다</td>
+<td class="success">ports_shouldBeInDomainLayer()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>09:17:30.860 [Test worker] INFO com.tngtech.archunit.core.PluginLoader -- Detected Java version 21.0.2
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.11</a> at Feb 24, 2026, 9:17:32 AM</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.0'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.hae'
+version = '0.0.1-SNAPSHOT'
+description = 'HAE Shop - High-Performance E-commerce Backend'
+
+java {
+    sourceCompatibility = '21'
+    targetCompatibility = '21'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springBootVersion = '3.5.0'
+    jjwtVersion = '0.12.6'
+    redissonVersion = '3.41.0'
+    resilience4jVersion = '2.2.0'
+    caffeineVersion = '3.1.8'
+    testcontainersVersion = '1.19.3'
+    archunitVersion = '1.3.0'
+    springdocVersion = '2.6.0'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    
+    runtimeOnly 'org.postgresql:postgresql'
+    
+    implementation "com.github.ben-manes.caffeine:caffeine:${caffeineVersion}"
+    implementation "org.redisson:redisson-spring-boot-starter:${redissonVersion}"
+    
+    implementation "io.github.resilience4j:resilience4j-spring-boot3:${resilience4jVersion}"
+    implementation "io.github.resilience4j:resilience4j-circuitbreaker:${resilience4jVersion}"
+    implementation "io.github.resilience4j:resilience4j-retry:${resilience4jVersion}"
+    implementation "io.github.resilience4j:resilience4j-timelimiter:${resilience4jVersion}"
+    
+    implementation "io.jsonwebtoken:jjwt-api:${jjwtVersion}"
+    runtimeOnly "io.jsonwebtoken:jjwt-impl:${jjwtVersion}"
+    runtimeOnly "io.jsonwebtoken:jjwt-jackson:${jjwtVersion}"
+    
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+    
+    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${springdocVersion}"
+    implementation "org.springdoc:springdoc-openapi-starter-webmvc-api:${springdocVersion}"
+    
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.testcontainers:testcontainers:' + testcontainersVersion
+    testImplementation 'org.testcontainers:postgresql:' + testcontainersVersion
+    testImplementation 'org.testcontainers:junit-jupiter:' + testcontainersVersion
+    
+    testImplementation "com.tngtech.archunit:archunit-junit5:${archunitVersion}"
+    
+    testRuntimeOnly 'com.h2database:h2'
+    testImplementation 'org.assertj:assertj-core:3.27.3'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.testcontainers:testcontainers-bom:${testcontainersVersion}"
+    }
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'spring.profiles.active', 'test'
+    systemProperty 'org.testcontainers.utility.imageNamePrefix', 'hae-shop-test'
+    jvmArgs '-Djdk.tracePinnedThreads=full'
+}
+
+task integrationTest(type: Test) {
+    useJUnitPlatform()
+    systemProperty 'spring.profiles.active', 'integration'
+    systemProperty 'org.testcontainers.utility.imageNamePrefix', 'hae-shop-integration'
+    jvmArgs '-Djdk.tracePinnedThreads=full'
+}
+
+bootJar {
+    archiveClassifier = 'app'
+}
