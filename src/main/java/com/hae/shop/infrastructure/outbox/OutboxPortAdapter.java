@@ -3,7 +3,7 @@ package com.hae.shop.infrastructure.outbox;
 import com.hae.shop.domain.order.model.OrderCancelledEvent;
 import com.hae.shop.domain.order.model.OrderCreatedEvent;
 import com.hae.shop.domain.order.model.PaymentCompletedEvent;
-import com.hae.shop.domain.order.port.out.OutboxPort;
+import com.hae.shop.domain.port.out.OutboxPort;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

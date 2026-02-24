@@ -20,13 +20,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">48</div>
+<div class="counter">52</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">1</div>
+<div class="counter">5</div>
 <p>failures</p>
 </div>
 </td>
@@ -38,7 +38,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.741s</div>
+<div class="counter">1.700s</div>
 <p>duration</p>
 </div>
 </td>
@@ -48,7 +48,7 @@
 </td>
 <td>
 <div class="infoBox failures" id="successRate">
-<div class="percent">97%</div>
+<div class="percent">90%</div>
 <p>successful</p>
 </div>
 </td>
@@ -71,8 +71,24 @@
 <h2>Failed tests</h2>
 <ul class="linkList">
 <li>
+<a href="classes/com.hae.shop.HaeShopApplicationTests.html">HaeShopApplicationTests</a>.
+<a href="classes/com.hae.shop.HaeShopApplicationTests.html#contextLoads()">contextLoads()</a>
+</li>
+<li>
 <a href="classes/com.hae.shop.application.ProductConcurrencyTest.html">ProductConcurrencyTest</a>.
 <a href="classes/com.hae.shop.application.ProductConcurrencyTest.html#decrementStock_concurrentRequests_shouldHandleOnlyAvailableStock()">동시 재고 차감 100건 - 정확히 50건만 성공해야 함</a>
+</li>
+<li>
+<a href="classes/com.hae.shop.infrastructure.outbox.OutboxRepositoryTest.html">OutboxRepositoryTest</a>.
+<a href="classes/com.hae.shop.infrastructure.outbox.OutboxRepositoryTest.html#initializationError">initializationError</a>
+</li>
+<li>
+<a href="classes/com.hae.shop.infrastructure.persistence.order.OrderRepositoryAdapterTest.html">OrderRepositoryAdapterTest</a>.
+<a href="classes/com.hae.shop.infrastructure.persistence.order.OrderRepositoryAdapterTest.html#initializationError">initializationError</a>
+</li>
+<li>
+<a href="classes/com.hae.shop.infrastructure.persistence.product.ProductRepositoryAdapterTest.html">ProductRepositoryAdapterTest</a>.
+<a href="classes/com.hae.shop.infrastructure.persistence.product.ProductRepositoryAdapterTest.html#initializationError">initializationError</a>
 </li>
 </ul>
 </div>
@@ -92,12 +108,22 @@
 <tbody>
 <tr>
 <td class="failures">
+<a href="packages/com.hae.shop.html">com.hae.shop</a>
+</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0.004s</td>
+<td class="failures">0%</td>
+</tr>
+<tr>
+<td class="failures">
 <a href="packages/com.hae.shop.application.html">com.hae.shop.application</a>
 </td>
 <td>41</td>
 <td>1</td>
 <td>0</td>
-<td>1.500s</td>
+<td>1.481s</td>
 <td class="failures">97%</td>
 </tr>
 <tr>
@@ -107,8 +133,38 @@
 <td>7</td>
 <td>0</td>
 <td>0</td>
-<td>0.241s</td>
+<td>0.213s</td>
 <td class="success">100%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="packages/com.hae.shop.infrastructure.outbox.html">com.hae.shop.infrastructure.outbox</a>
+</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0.001s</td>
+<td class="failures">0%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="packages/com.hae.shop.infrastructure.persistence.order.html">com.hae.shop.infrastructure.persistence.order</a>
+</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0.001s</td>
+<td class="failures">0%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="packages/com.hae.shop.infrastructure.persistence.product.html">com.hae.shop.infrastructure.persistence.product</a>
+</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0s</td>
+<td class="failures">0%</td>
 </tr>
 </tbody>
 </table>
@@ -128,13 +184,23 @@
 </thead>
 <tbody>
 <tr>
+<td class="failures">
+<a href="classes/com.hae.shop.HaeShopApplicationTests.html">com.hae.shop.HaeShopApplicationTests</a>
+</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0.004s</td>
+<td class="failures">0%</td>
+</tr>
+<tr>
 <td class="success">
 <a href="classes/com.hae.shop.application.CouponServiceTest.html">com.hae.shop.application.CouponServiceTest</a>
 </td>
 <td>12</td>
 <td>0</td>
 <td>0</td>
-<td>0.971s</td>
+<td>0.877s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -144,7 +210,7 @@
 <td>7</td>
 <td>0</td>
 <td>0</td>
-<td>0.110s</td>
+<td>0.133s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -154,7 +220,7 @@
 <td>3</td>
 <td>0</td>
 <td>0</td>
-<td>0.174s</td>
+<td>0.222s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -164,7 +230,7 @@
 <td>7</td>
 <td>0</td>
 <td>0</td>
-<td>0.027s</td>
+<td>0.026s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -174,7 +240,7 @@
 <td>3</td>
 <td>0</td>
 <td>0</td>
-<td>0.006s</td>
+<td>0.005s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -184,7 +250,7 @@
 <td>3</td>
 <td>1</td>
 <td>0</td>
-<td>0.192s</td>
+<td>0.196s</td>
 <td class="failures">66%</td>
 </tr>
 <tr>
@@ -194,7 +260,7 @@
 <td>6</td>
 <td>0</td>
 <td>0</td>
-<td>0.020s</td>
+<td>0.022s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -204,8 +270,38 @@
 <td>7</td>
 <td>0</td>
 <td>0</td>
-<td>0.241s</td>
+<td>0.213s</td>
 <td class="success">100%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="classes/com.hae.shop.infrastructure.outbox.OutboxRepositoryTest.html">com.hae.shop.infrastructure.outbox.OutboxRepositoryTest</a>
+</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0.001s</td>
+<td class="failures">0%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="classes/com.hae.shop.infrastructure.persistence.order.OrderRepositoryAdapterTest.html">com.hae.shop.infrastructure.persistence.order.OrderRepositoryAdapterTest</a>
+</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0.001s</td>
+<td class="failures">0%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="classes/com.hae.shop.infrastructure.persistence.product.ProductRepositoryAdapterTest.html">com.hae.shop.infrastructure.persistence.product.ProductRepositoryAdapterTest</a>
+</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0s</td>
+<td class="failures">0%</td>
 </tr>
 </tbody>
 </table>
@@ -218,7 +314,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.11</a> at Feb 24, 2026, 11:40:52 PM</p>
+<a href="http://www.gradle.org">Gradle 8.11</a> at Feb 25, 2026, 12:13:25 AM</p>
 </div>
 </div>
 </body>

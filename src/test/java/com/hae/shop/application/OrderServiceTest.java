@@ -4,7 +4,7 @@ import com.hae.shop.common.BusinessException;
 import com.hae.shop.common.ErrorCode;
 import com.hae.shop.domain.order.model.Order;
 import com.hae.shop.domain.order.port.out.OrderRepositoryPort;
-import com.hae.shop.domain.order.port.out.OutboxPort;
+import com.hae.shop.domain.port.out.OutboxPort;
 import com.hae.shop.domain.order.port.out.PaymentGatewayPort;
 import com.hae.shop.domain.product.port.in.ProductService;
 import com.hae.shop.domain.coupon.port.in.CouponService;

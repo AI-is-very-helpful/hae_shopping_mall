@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.hae.shop.architecture.ArchitectureTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-02-24T14:40:52" hostname="kan" time="0.245">
+<testsuite name="com.hae.shop.architecture.ArchitectureTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-02-24T15:13:25" hostname="kan" time="0.215">
   <properties/>
-  <testcase name="도메인 레이어는 인프라 레이어에 의존하지 않아야 한다" classname="com.hae.shop.architecture.ArchitectureTest" time="0.062"/>
-  <testcase name="인터페이스 레이어는 도메인 레이어를 직접 사용할 수 있다" classname="com.hae.shop.architecture.ArchitectureTest" time="0.03"/>
-  <testcase name="도메인 모델은 JPA 엔티티 어노테이션을 가지지 않아야 한다" classname="com.hae.shop.architecture.ArchitectureTest" time="0.005"/>
+  <testcase name="도메인 레이어는 인프라 레이어에 의존하지 않아야 한다" classname="com.hae.shop.architecture.ArchitectureTest" time="0.056"/>
+  <testcase name="인터페이스 레이어는 도메인 레이어를 직접 사용할 수 있다" classname="com.hae.shop.architecture.ArchitectureTest" time="0.014"/>
+  <testcase name="도메인 모델은 JPA 엔티티 어노테이션을 가지지 않아야 한다" classname="com.hae.shop.architecture.ArchitectureTest" time="0.004"/>
   <testcase name="도메인 레이어는 Spring 프레임워크에 의존하지 않아야 한다" classname="com.hae.shop.architecture.ArchitectureTest" time="0.002"/>
-  <testcase name="애플리케이션 레이어는 인프라 레이어에 직접 의존하지 않아야 한다" classname="com.hae.shop.architecture.ArchitectureTest" time="0.017"/>
+  <testcase name="애플리케이션 레이어는 인프라 레이어에 직접 의존하지 않아야 한다" classname="com.hae.shop.architecture.ArchitectureTest" time="0.006"/>
   <testcase name="Port 인터페이스는 Domain 레이어에 위치해야 한다" classname="com.hae.shop.architecture.ArchitectureTest" time="0.002"/>
-  <testcase name="순환 의존성이 없어야 한다" classname="com.hae.shop.architecture.ArchitectureTest" time="0.123"/>
-  <system-out><![CDATA[23:40:50.645 [Test worker] INFO com.tngtech.archunit.core.PluginLoader -- Detected Java version 21.0.2
+  <testcase name="순환 의존성이 없어야 한다" classname="com.hae.shop.architecture.ArchitectureTest" time="0.129"/>
+  <system-out><![CDATA[2026-02-25T00:13:22.942+09:00  INFO 345080 --- [hae-shop] [    Test worker] com.tngtech.archunit.core.PluginLoader   : Detected Java version 21.0.2
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

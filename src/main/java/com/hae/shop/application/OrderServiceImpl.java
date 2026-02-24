@@ -9,7 +9,7 @@ import com.hae.shop.domain.order.model.PaymentCompletedEvent;
 import com.hae.shop.domain.order.model.OrderCancelledEvent;
 import com.hae.shop.domain.order.port.in.OrderService;
 import com.hae.shop.domain.order.port.out.OrderRepositoryPort;
-import com.hae.shop.domain.order.port.out.OutboxPort;
+import com.hae.shop.domain.port.out.OutboxPort;
 import com.hae.shop.domain.product.model.Product;
 import com.hae.shop.domain.product.port.in.ProductService;
 import com.hae.shop.domain.coupon.port.in.CouponService;
