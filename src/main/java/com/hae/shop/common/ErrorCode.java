@@ -24,13 +24,12 @@ public enum ErrorCode {
     IDEMPOTENCY_KEY_CONFLICT("O005", "중복 요청입니다."),
     PAYMENT_CANCEL_FAILED("O006", "결제 취소에 실패했습니다."),
 
-    COUPON_NOT_FOUND("C001", "쿠폰을 찾을 수 없습니다."),
-    COUPON_EXPIRED("C002", "만료된 쿠폰입니다."),
-    COUPON_NOT_AVAILABLE("C003", "사용 불가능한 쿠폰입니다."),
-    COUPON_ALREADY_USED("C004", "이미 사용된 쿠폰입니다."),
-    COUPON_QUOTA_EXCEEDED("C005", "쿠폰 수량이 소진되었습니다."),
-    MIN_PURCHASE_NOT_MET("C006", "최소 구매 금액을 충족하지 않았습니다."),
-
+    COUPON_NOT_FOUND("CP001", "쿠폰을 찾을 수 없습니다."),
+    COUPON_EXPIRED("CP002", "만료된 쿠폰입니다."),
+    COUPON_NOT_AVAILABLE("CP003", "사용 불가능한 쿠폰입니다."),
+    COUPON_ALREADY_USED("CP004", "이미 사용된 쿠폰입니다."),
+    COUPON_QUOTA_EXCEEDED("CP005", "쿠폰 수량이 소진되었습니다."),
+    MIN_PURCHASE_NOT_MET("CP006", "최소 구매 금액을 충족하지 않았습니다."),
     PAYMENT_GATEWAY_ERROR("PG001", "결제 gateway 오류가 발생했습니다."),
     PAYMENT_TIMEOUT("PG002", "결제 시간이 초과되었습니다.");
 

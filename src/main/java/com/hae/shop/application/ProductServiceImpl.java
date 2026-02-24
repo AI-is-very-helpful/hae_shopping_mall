@@ -7,6 +7,7 @@ import com.hae.shop.domain.product.model.Product;
 import com.hae.shop.domain.product.port.in.ProductService;
 import com.hae.shop.domain.product.port.out.ProductRepositoryPort;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,6 +40,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional(readOnly = true)
+    @Cacheable(cacheNames = "products", key = "#id")
     public Product getProduct(Long id) {
         return productRepository.findById(id)
             .orElseThrow(() -> new BusinessException(ErrorCode.PRODUCT_NOT_FOUND));
@@ -46,6 +48,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional(readOnly = true)
+    @Cacheable(cacheNames = "categories", key = "#category")
     public List<Product> getProducts(String category) {
         if (category != null && !category.isEmpty()) {
             return productRepository.findByCategory(category);

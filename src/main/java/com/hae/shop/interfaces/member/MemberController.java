@@ -8,12 +8,11 @@ import com.hae.shop.interfaces.member.dto.LoginRequest;
 import com.hae.shop.interfaces.member.dto.LoginResponse;
 import com.hae.shop.interfaces.member.dto.MemberResponse;
 import com.hae.shop.interfaces.member.dto.RegisterRequest;
+import com.hae.shop.interfaces.member.dto.RefreshTokenRequest;
 import com.hae.shop.domain.member.model.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -76,5 +75,27 @@ public class MemberController {
         
         LoginResponse response = new LoginResponse(accessToken, refreshToken, expiresIn, "Bearer", memberResponse);
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/auth/refresh")
+    public ResponseEntity<LoginResponse> refreshToken(
+            @Valid @RequestBody RefreshTokenRequest request) {
+        String refreshToken = request.refreshToken();
+        if (!jwtTokenProvider.validateToken(refreshToken)) {
+            throw new BusinessException(ErrorCode.INVALID_CREDENTIALS);
+        }
+        String email = jwtTokenProvider.getEmailFromToken(refreshToken);
+        Member member = memberService.findByEmail(email);
+        String newAccessToken = jwtTokenProvider.generateAccessToken(email);
+        String newRefreshToken = jwtTokenProvider.generateRefreshToken(email);
+        long expiresIn = 3600000L;
+        MemberResponse memberResponse = new MemberResponse(
+            member.getId(),
+            member.getEmail(),
+            member.getNickname(),
+            member.getRole().name(),
+            member.getCreatedAt()
+        );
+        return ResponseEntity.ok(new LoginResponse(newAccessToken, newRefreshToken, expiresIn, "Bearer", memberResponse));
     }
 }

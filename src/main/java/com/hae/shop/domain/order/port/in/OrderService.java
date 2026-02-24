@@ -8,6 +8,6 @@ public interface OrderService {
     void completePayment(Long orderId);
     Order addItem(Long orderId, Long productId, int quantity);
     Order applyCoupon(Long orderId, Long couponId);
-    Order payOrder(Long orderId, String paymentToken);
+    Order payOrder(Long orderId, String paymentToken, String idempotencyKey);
     Order cancelOrder(Long orderId, String reason);
 }

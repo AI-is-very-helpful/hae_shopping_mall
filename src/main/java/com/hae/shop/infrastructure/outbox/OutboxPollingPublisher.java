@@ -1,21 +1,25 @@
 package com.hae.shop.infrastructure.outbox;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.time.Instant;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
-import java.util.List;
+import com.hae.shop.infrastructure.persistence.outbox.OutboxEventEntity;
+import com.hae.shop.infrastructure.persistence.outbox.OutboxJpaRepository;
 
-@Slf4j
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class OutboxPollingPublisher {
 
-    private final OutboxRepository outboxRepository;
+    private final OutboxJpaRepository outboxJpaRepository;
 
     @Value("${outbox.polling.batch-size:100}")
     private int batchSize;
@@ -23,10 +27,7 @@ public class OutboxPollingPublisher {
     @Scheduled(fixedDelayString = "${outbox.polling.interval:3000}")
     @Transactional
     public void publishEvents() {
-        List<OutboxEvent> events = outboxRepository.findUnprocessedEvents()
-            .stream()
-            .limit(batchSize)
-            .toList();
+        List<OutboxEventEntity> events = outboxJpaRepository.findByProcessedAtIsNullOrderByCreatedAtAsc(batchSize);
 
         if (events.isEmpty()) {
             return;
@@ -34,23 +35,27 @@ public class OutboxPollingPublisher {
 
         log.info("Processing {} outbox events", events.size());
 
-        for (OutboxEvent event : events) {
+        for (OutboxEventEntity eventEntity : events) {
             try {
-                processEvent(event);
-                event.setProcessedAt(Instant.now());
-                outboxRepository.save(event);
-                log.info("Successfully processed event: {} - {}", event.getAggregateType(), event.getAggregateId());
+                processEvent(eventEntity);
+                eventEntity.setProcessedAt(Instant.now());
+                eventEntity.setRetryCount(0);
+                eventEntity.setLastError(null);
+                outboxJpaRepository.save(eventEntity);
+                log.info("Successfully processed event: id={}, type={}, aggregateId={}", 
+                    eventEntity.getId(), eventEntity.getEventType(), eventEntity.getAggregateId());
             } catch (Exception e) {
-                log.error("Failed to process event: {}", event.getId(), e);
-                event.setRetryCount(event.getRetryCount() + 1);
-                event.setLastError(e.getMessage());
-                outboxRepository.save(event);
+                log.error("Failed to process outbox event: id={}, type={}, error={}", 
+                    eventEntity.getId(), eventEntity.getEventType(), e.getMessage(), e);
+                eventEntity.setRetryCount(eventEntity.getRetryCount() + 1);
+                eventEntity.setLastError(e.getMessage());
+                outboxJpaRepository.save(eventEntity);
             }
         }
     }
 
-    private void processEvent(OutboxEvent event) {
+    private void processEvent(OutboxEventEntity eventEntity) {
         log.debug("Processing event: type={}, aggregateId={}, payload={}", 
-            event.getEventType(), event.getAggregateId(), event.getPayload());
+            eventEntity.getEventType(), eventEntity.getAggregateId(), eventEntity.getPayload());
     }
 }

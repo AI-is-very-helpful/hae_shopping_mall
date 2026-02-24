@@ -48,8 +48,11 @@ public class OrderController {
     }
 
     @PostMapping("/{id}/pay")
-    public ResponseEntity<OrderResponse> payOrder(@PathVariable Long id, @Valid @RequestBody PayOrderRequest request) {
-        var order = orderService.payOrder(id, request.paymentToken());
+    public ResponseEntity<OrderResponse> payOrder(
+            @PathVariable Long id,
+            @RequestHeader(value = "Idempotency-Key", required = false) String idempotencyKey,
+            @Valid @RequestBody PayOrderRequest request) {
+        var order = orderService.payOrder(id, request.paymentToken(), idempotencyKey);
         return ResponseEntity.ok(OrderResponse.from(order));
     }
 

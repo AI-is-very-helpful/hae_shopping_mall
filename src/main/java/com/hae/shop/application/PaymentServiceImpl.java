@@ -1,7 +1,5 @@
 package com.hae.shop.application;
 
-import com.hae.shop.common.BusinessException;
-import com.hae.shop.common.ErrorCode;
 import com.hae.shop.domain.order.port.in.PaymentService;
 import com.hae.shop.domain.order.port.out.PaymentGatewayPort;
 import lombok.RequiredArgsConstructor;
@@ -20,23 +18,13 @@ public class PaymentServiceImpl implements PaymentService {
     @Transactional
     public boolean processPayment(Long orderId, BigDecimal amount) {
         PaymentGatewayPort.PaymentResult result = paymentGatewayPort.processPayment(orderId, amount);
-
-        if (!result.success()) {
-            throw new BusinessException(ErrorCode.PAYMENT_FAILED);
-        }
-
-        return true;
+        return result.success();
     }
 
     @Override
     @Transactional
     public boolean cancelPayment(String transactionId) {
         PaymentGatewayPort.PaymentResult result = paymentGatewayPort.cancelPayment(transactionId);
-
-        if (!result.success()) {
-            throw new BusinessException(ErrorCode.PAYMENT_CANCEL_FAILED);
-        }
-
-        return true;
+        return result.success();
     }
 }

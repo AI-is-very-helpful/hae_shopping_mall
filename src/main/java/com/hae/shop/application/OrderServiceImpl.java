@@ -130,33 +130,51 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public Order payOrder(Long orderId, String paymentToken) {
+    public Order payOrder(Long orderId, String paymentToken, String idempotencyKey) {
+        // Idempotency check: if key provided, see if already processed
+        if (idempotencyKey != null && !idempotencyKey.isEmpty()) {
+            var existingOrder = orderRepository.findByIdempotencyKey(idempotencyKey);
+            if (existingOrder.isPresent()) {
+                Order found = existingOrder.get();
+                if (found.getId().equals(orderId)) {
+                    // Retry of same payment - return the existing paid order
+                    if (found.getStatus() == Order.OrderStatus.PAID) {
+                        return found;
+                    }
+                    // If found but not paid, continue to process (shouldn't happen normally)
+                } else {
+                    // Key belongs to a different order - conflict
+                    throw new BusinessException(ErrorCode.IDEMPOTENCY_KEY_CONFLICT);
+                }
+            }
+        }
+
         Order order = getOrder(orderId);
-        
         if (order.getStatus() == Order.OrderStatus.PAID) {
             return order;
         }
-        
         if (order.getStatus() != Order.OrderStatus.PENDING) {
             throw new BusinessException(ErrorCode.INVALID_ORDER_STATUS);
         }
-        
         var paymentResult = paymentGatewayPort.processPayment(
             orderId,
             order.getPaymentAmount()
         );
-        
         if (!paymentResult.success()) {
             throw new BusinessException(ErrorCode.PAYMENT_FAILED);
         }
         
         order.setStatus(Order.OrderStatus.PAID);
-        Order savedOrder = orderRepository.save(order);
         
+        // Set idempotencyKey if provided and not already set
+        if (idempotencyKey != null && !idempotencyKey.isEmpty() && order.getIdempotencyKey() == null) {
+            order.setIdempotencyKey(idempotencyKey);
+        }
+        
+        Order savedOrder = orderRepository.save(order);
         outboxPort.savePaymentCompletedEvent(
             PaymentCompletedEvent.from(savedOrder, "CARD", "receipt-" + paymentResult.transactionId())
         );
-        
         return savedOrder;
     }
 

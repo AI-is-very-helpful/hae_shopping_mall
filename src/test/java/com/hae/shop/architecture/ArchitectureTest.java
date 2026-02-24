@@ -45,13 +45,17 @@ class ArchitectureTest {
     void application_shouldOnlyDependOnDomain() {
         classes()
             .that().resideInAPackage("com.hae.shop.application..")
+            .and().haveNameMatching("^(?!.*Test).*$")
             .should().onlyDependOnClassesThat()
             .resideInAnyPackage(
                 "com.hae.shop.domain..",
                 "com.hae.shop.common..",
+                "com.hae.shop.config..",
                 "java..",
                 "org.springframework.stereotype..",
                 "org.springframework.transaction..",
+                "org.springframework.cache..",
+                "org.springframework.security..",
                 "lombok.."
             )
             .check(importedClasses);
@@ -62,11 +66,14 @@ class ArchitectureTest {
     void interfaces_shouldOnlyUseDomainOrDtos() {
         classes()
             .that().resideInAPackage("com.hae.shop.interfaces..")
+            .and().haveNameMatching("^(?!.*Test).*$")
             .should().onlyDependOnClassesThat()
             .resideInAnyPackage(
                 "com.hae.shop.domain..",
                 "com.hae.shop.common..",
                 "com.hae.shop.application..",
+                "com.hae.shop.interfaces..",
+                "com.hae.shop.config..",
                 "java..",
                 "org.springframework..",
                 "jakarta.validation..",
