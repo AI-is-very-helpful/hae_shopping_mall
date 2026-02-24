@@ -1,25 +1,34 @@
 package com.hae.shop.infrastructure.outbox;
 
-import java.time.Instant;
-import java.util.List;
-
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hae.shop.domain.order.model.OrderCancelledEvent;
+import com.hae.shop.domain.order.model.OrderCreatedEvent;
+import com.hae.shop.domain.order.model.PaymentCompletedEvent;
+import com.hae.shop.infrastructure.persistence.outbox.OutboxEventEntity;
+import com.hae.shop.infrastructure.persistence.outbox.OutboxJpaRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.hae.shop.infrastructure.persistence.outbox.OutboxEventEntity;
-import com.hae.shop.infrastructure.persistence.outbox.OutboxJpaRepository;
+import java.time.Instant;
+import java.util.List;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-
+/**
+ * Outbox Polling Publisher.
+ * Periodically polls unprocessed outbox events and publishes them to downstream systems.
+ * Implements the polling relay mechanism of the Transactional Outbox pattern.
+ */
 @Component
 @RequiredArgsConstructor
 @Slf4j
 public class OutboxPollingPublisher {
 
     private final OutboxJpaRepository outboxJpaRepository;
+    private final ObjectMapper objectMapper;
 
     @Value("${outbox.polling.batch-size:100}")
     private int batchSize;
@@ -54,8 +63,24 @@ public class OutboxPollingPublisher {
         }
     }
 
-    private void processEvent(OutboxEventEntity eventEntity) {
-        log.debug("Processing event: type={}, aggregateId={}, payload={}", 
-            eventEntity.getEventType(), eventEntity.getAggregateId(), eventEntity.getPayload());
+    private void processEvent(OutboxEventEntity eventEntity) throws JsonProcessingException {
+        String eventType = eventEntity.getEventType();
+        String payload = eventEntity.getPayload();
+
+        switch (eventType) {
+            case "OrderCreatedEvent" -> {
+                OrderCreatedEvent event = objectMapper.readValue(payload, OrderCreatedEvent.class);
+                log.info("Publishing OrderCreatedEvent: orderId={}, memberId={}", event.orderId(), event.memberId());
+            }
+            case "PaymentCompletedEvent" -> {
+                PaymentCompletedEvent event = objectMapper.readValue(payload, PaymentCompletedEvent.class);
+                log.info("Publishing PaymentCompletedEvent: orderId={}, transactionId={}", event.orderId(), event.receiptUrl());
+            }
+            case "OrderCancelledEvent" -> {
+                OrderCancelledEvent event = objectMapper.readValue(payload, OrderCancelledEvent.class);
+                log.info("Publishing OrderCancelledEvent: orderId={}, reason={}", event.orderId(), event.reason());
+            }
+            default -> log.warn("Unknown event type: {}", eventType);
+        }
     }
 }

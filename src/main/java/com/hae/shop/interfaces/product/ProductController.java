@@ -5,6 +5,9 @@ import com.hae.shop.interfaces.product.dto.CreateProductRequest;
 import com.hae.shop.interfaces.product.dto.ProductListResponse;
 import com.hae.shop.interfaces.product.dto.ProductResponse;
 import com.hae.shop.domain.product.model.Product;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +19,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
+@Tag(name = "Products", description = "상품 관리 API")
 public class ProductController {
 
     private final ProductService productService;
 
     @PostMapping
+    @Operation(summary = "상품 등록", description = "새 상품을 등록합니다")
     public ResponseEntity<ProductResponse> createProduct(@Valid @RequestBody CreateProductRequest request) {
         Product product = productService.createProduct(
             request.name(), request.description(), request.price(), request.stockQuantity(), request.category()
@@ -30,6 +35,7 @@ public class ProductController {
     }
 
     @GetMapping
+    @Operation(summary = "상품 목록 조회", description = "카테고리별 상품 목록을 조회합니다")
     public ResponseEntity<ProductListResponse> getProducts(@RequestParam(required = false) String category) {
         List<Product> products = productService.getProducts(category);
         List<ProductResponse> responseList = products.stream()
@@ -39,6 +45,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
+    @Operation(summary = "상품 상세 조회", description = "상품 ID로 상세 정보를 조회합니다")
     public ResponseEntity<ProductResponse> getProduct(@PathVariable Long id) {
         Product product = productService.getProduct(id);
         return ResponseEntity.ok(ProductResponse.from(product));

@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
             case UNAUTHORIZED -> HttpStatus.UNAUTHORIZED;
             case FORBIDDEN -> HttpStatus.FORBIDDEN;
             case NOT_FOUND, MEMBER_NOT_FOUND, PRODUCT_NOT_FOUND, ORDER_NOT_FOUND, COUPON_NOT_FOUND -> HttpStatus.NOT_FOUND;
-            case DUPLICATE_RESOURCE, MEMBER_ALREADY_EXISTS -> HttpStatus.CONFLICT;
+            case DUPLICATE_RESOURCE, MEMBER_ALREADY_EXISTS, IDEMPOTENCY_KEY_CONFLICT -> HttpStatus.CONFLICT;
             default -> HttpStatus.BAD_REQUEST;
         };
         return ResponseEntity.status(status).body(ErrorResponse.of(errorCode, e.getMessage()));
